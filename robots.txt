@@ -1,13 +1,9 @@
 User-agent: *
-Allow: /
 
-# Block access to any admin or config paths if added later
+# Block sensitive paths
 Disallow: /admin/
 Disallow: /config/
 Disallow: /.env
 
-# Sitemaps
+# Sitemap
 Sitemap: https://edge.cloudemy.in/sitemap.xml
-
-# Crawl-delay for polite bots
-Crawl-delay: 10
