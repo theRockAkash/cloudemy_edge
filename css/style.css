@@ -284,7 +284,6 @@ img {
   #blog-grid {
     grid-template-columns: 1fr !important;
   }
-
 }
 
 /* REVEAL */
@@ -1357,6 +1356,7 @@ nav.sc {
   gap: 9px;
   flex-wrap: wrap;
   margin-bottom: 22px;
+  align-items: center;
 }
 .ms {
   display: inline-flex;
@@ -2332,14 +2332,16 @@ footer {
 
   /* Video Play Button */
   .vid-play-btn {
-  width: 48px;
-  height: 48px;
-}
-.vid-play svg {
-  width: 20px;
-  height: 20px;
-}
-
+    width: 48px;
+    height: 48px;
+  }
+  .vid-play svg {
+    width: 20px;
+    height: 20px;
+  }
+  #waf {
+    display: none;
+  }
   /* SECTIONS */
   .s {
     padding: 60px 0;
@@ -2489,4 +2491,17 @@ footer {
   a[href^="#"]::after {
     content: "";
   }
+}
+
+.course-brochure-download {
+  margin-top: 14px;
+  padding: 11px 14px;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
