@@ -426,6 +426,7 @@ nav.sc {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--t2);
+  margin-top: 5px;
 }
 .nl {
   display: flex;

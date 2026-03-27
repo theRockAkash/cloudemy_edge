@@ -2238,6 +2238,7 @@
                 id="yt-play"
                 onclick="loadVideo()"
                 role="button"
+                data-url="https://youtu.be/F5IgMmiSUH0?si=z9OlLpAd7B6KENJE"
                 aria-label="Play video: Flutter API Integration Explained by Akash Verma"
               >
                 <div class="vid-play-btn">
@@ -3160,9 +3161,7 @@
                 <p class="ffn">
                   No spam. No calls at 7am. We respect your time.
                 </p>
-                <div
-                  class="course-brochure-download"
-                >
+                <div class="course-brochure-download">
                   <div style="display: flex; align-items: center; gap: 9px">
                     <div
                       style="
@@ -4355,13 +4354,9 @@
         });
       })();
       function loadVideo() {
-        var frame = document.getElementById("yt-frame");
         var play = document.getElementById("yt-play");
-        var thumb = document.querySelector(".vid-thumb");
-        frame.src = frame.getAttribute("data-src");
-        frame.style.display = "block";
-        play.style.display = "none";
-        if (thumb) thumb.style.opacity = "0";
+        var url = play.getAttribute("data-url");
+        window.open(url, "_blank");
       }
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.onclick = function (e) {
