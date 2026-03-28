@@ -33,9 +33,6 @@
 html {
   scroll-behavior: smooth;
 }
-html {
-  overflow-x: clip;
-}
 body {
   font-family: var(--fb);
   background: var(--navy);
@@ -389,20 +386,21 @@ nav.sc {
   align-items: center;
   gap: 11px;
   .logo-icon{
-    height: 30px;
+    height: 36px;
     width: auto;
   }
 }
-.logo-txt {
-  display: flex;
-  align-items: center;
-  /* flex-direction: column; */
-  line-height: 1.1;
-  gap: 4px;
-  img{
-    height: 12px;
-    width: auto;
+  .logo-txt {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    line-height: 1.1;
+    img{
+      height: 15px;
+      width: auto;
+    }
   }
+
   .logo-tag{
     display: inline-block;
     color: #54b6f6;
@@ -410,9 +408,7 @@ nav.sc {
     border-radius: 100px;
     border: 1px solid rgba(84, 182, 246, 0.25);
     padding: 4px 8px;
-    margin-top: 4px;
   }
-}
 .logo-name {
   font-family: var(--fh);
   font-size: 1rem;
@@ -426,7 +422,7 @@ nav.sc {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--t2);
-  margin-top: 5px;
+  line-height: 1.2;
 }
 .nl {
   display: flex;
@@ -2201,6 +2197,10 @@ footer {
 .prj-grid-sub {
   grid-template-columns: repeat(3, 1fr);
 }
+.course-icon{
+  height: 24px;
+  width: auto;
+}
 @media (max-width: 960px) {
   .prj-grid-main {
     grid-template-columns: 1fr 1fr !important;
@@ -2288,16 +2288,12 @@ footer {
     width: 100%;
   }
 }
-@media (max-width: 991px) {
-  .ncta{
-    padding: 10px 13px;
-    font-size: 0.73rem;
-  }
-  .nl{
-    gap: 12px;
+@media (min-width: 992px) {
+  html {
+    overflow-x: clip;
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 991px) {
   /* NAV */
   .nl,
   .ncta {
