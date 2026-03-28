@@ -33,9 +33,6 @@
 html {
   scroll-behavior: smooth;
 }
-html {
-  overflow-x: clip;
-}
 body {
   font-family: var(--fb);
   background: var(--navy);
@@ -389,20 +386,21 @@ nav.sc {
   align-items: center;
   gap: 11px;
   .logo-icon{
-    height: 30px;
+    height: 36px;
     width: auto;
   }
 }
-.logo-txt {
-  display: flex;
-  align-items: center;
-  /* flex-direction: column; */
-  line-height: 1.1;
-  gap: 4px;
-  img{
-    height: 12px;
-    width: auto;
+  .logo-txt {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    line-height: 1.1;
+    img{
+      height: 15px;
+      width: auto;
+    }
   }
+
   .logo-tag{
     display: inline-block;
     color: #54b6f6;
@@ -410,9 +408,7 @@ nav.sc {
     border-radius: 100px;
     border: 1px solid rgba(84, 182, 246, 0.25);
     padding: 4px 8px;
-    margin-top: 4px;
   }
-}
 .logo-name {
   font-family: var(--fh);
   font-size: 1rem;
@@ -426,7 +422,7 @@ nav.sc {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--t2);
-  margin-top: 5px;
+  line-height: 1.2;
 }
 .nl {
   display: flex;
@@ -483,13 +479,16 @@ nav.sc {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 26px;
+  gap: 16px;
   opacity: 0;
   transition: opacity 0.28s;
 }
 #mm.open {
   display: flex;
   opacity: 1;
+  height: calc(100vh - 66px);
+  top: 66px;
+  overflow-y: auto;
 }
 #mm a {
   font-family: var(--fh);
@@ -726,6 +725,8 @@ nav.sc {
   margin-bottom: 52px;
 }
 .tstrip {
+  max-width: 560px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 0;
@@ -739,7 +740,8 @@ nav.sc {
   align-items: center;
   gap: 4px;
   min-width: 110px;
-  padding: 0 16px;
+  width: 33.33%;
+  /* padding: 0 16px; */
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 .ti:last-child {
@@ -2034,6 +2036,10 @@ footer {
   background: rgba(37, 211, 102, 0.09);
   border: 1px solid rgba(37, 211, 102, 0.2);
   color: #22c55e;
+  img{
+    height: 20px;
+    width: auto;
+  }
 }
 
 /* ── WA FLOAT ── */
@@ -2198,6 +2204,10 @@ footer {
 .prj-grid-sub {
   grid-template-columns: repeat(3, 1fr);
 }
+.course-icon{
+  height: 24px;
+  width: auto;
+}
 @media (max-width: 960px) {
   .prj-grid-main {
     grid-template-columns: 1fr 1fr !important;
@@ -2268,7 +2278,7 @@ footer {
   }
   .ti {
     min-width: 80px;
-    padding: 0 10px;
+    /* padding: 0 10px; */
   }
   .tn {
     font-size: 1.35rem;
@@ -2285,7 +2295,12 @@ footer {
     width: 100%;
   }
 }
-@media (max-width: 850px) {
+@media (min-width: 992px) {
+  html {
+    overflow-x: clip;
+  }
+}
+@media (max-width: 991px) {
   /* NAV */
   .nl,
   .ncta {
