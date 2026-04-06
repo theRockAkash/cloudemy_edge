@@ -6,4 +6,4 @@ Disallow: /config/
 Disallow: /.env
 
 # Sitemap
-Sitemap: https://edge.cloudemy.in/sitemap.xml
+Sitemap: https://cloudemyedge.com/sitemap.xml
