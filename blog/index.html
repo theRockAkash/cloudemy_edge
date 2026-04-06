@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Android, Flutter & MERN Guides | Cloudemy Edge Lucknow</title>
+    <meta
+      name="description"
+      content="Blogs on Android development, Flutter, MERN Stack, Python and PHP — written by Akash Verma for developers and students in Lucknow and UP."
+    />
+    <meta
+      name="keywords"
+      content="Android development blog, Flutter tutorial Lucknow, MERN stack guide UP, Python Django tutorial, PHP Laravel, Cloudemy Edge blog"
+    />
+    <link rel="canonical" href="https://cloudemyedge.com/blog" />
+    <meta
+      property="og:title"
+      content="Blog — Android, Flutter & MERN Guides | Cloudemy Edge"
+    />
+    <meta
+      property="og:description"
+      content="Blogs on Android, Flutter, MERN, Python and PHP by Akash Verma."
+    />
+    <meta property="og:url" content="https://cloudemyedge.com/blog" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/x-icon" href="https://cloudemyedge.com/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cloudemyedge.com/css/style.css" />
+    <style>
+      /* ── PAGE-SPECIFIC STYLES ── */
+      .blog-hero {
+        padding: 24px 0 64px;
+        text-align: center;
+        position: relative;
+      }
+      .blog-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 60% at 50% 0%,
+          rgba(17, 107, 252, 0.07),
+          transparent
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+      .blog-hero .w {
+        position: relative;
+        z-index: 1;
+      }
+      .blog-hero h1 {
+        font-family: var(--fh);
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin-bottom: 14px;
+      }
+      .blog-hero p {
+        font-size: 1.02rem;
+        color: var(--t2);
+        max-width: 520px;
+        margin: 0 auto 32px;
+        line-height: 1.75;
+      }
+
+      /* FILTER TABS */
+      .filter-bar {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 52px;
+      }
+      .ftab {
+        padding: 7px 18px;
+        border-radius: 100px;
+        border: 1px solid var(--glb);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--t2);
+        font-family: var(--fg);
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        user-select: none;
+      }
+      .ftab:hover {
+        border-color: rgba(17, 107, 252, 0.3);
+        color: var(--t1);
+      }
+      .ftab.active {
+        background: rgba(17, 107, 252, 0.12);
+        border-color: rgba(17, 107, 252, 0.4);
+        color: var(--t1);
+      }
+
+      /* BLOG GRID */
+      .blog-index-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-bottom: 64px;
+      }
+      .blog-card-wrap {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .blog-card-wrap.on {
+        opacity: 1;
+        transform: none;
+      }
+      .blog-card-wrap.hidden {
+        display: none;
+      }
+      .blog-card-wrap:nth-child(2) {
+        transition-delay: 0.07s;
+      }
+      .blog-card-wrap:nth-child(3) {
+        transition-delay: 0.14s;
+      }
+      .blog-card-wrap:nth-child(4) {
+        transition-delay: 0.07s;
+      }
+      .blog-card-wrap:nth-child(5) {
+        transition-delay: 0.14s;
+      }
+      .blog-card-wrap:nth-child(6) {
+        transition-delay: 0.21s;
+      }
+
+      /* FEATURED CARD — first card is large */
+      .blog-card-wrap.featured {
+        grid-column: 1/-1;
+      }
+      .blog-card-wrap.featured .blog-card-img {
+        height: 260px;
+      }
+      .blog-card-wrap.featured .blog-card-body {
+        padding: 24px 28px;
+      }
+      .blog-card-wrap.featured .blog-card-title {
+        font-size: 1.3rem;
+      }
+      .blog-card-wrap.featured .blog-card-desc {
+        font-size: 0.92rem;
+        max-width: 640px;
+      }
+      .blog-card-wrap.featured .blog-card-meta {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* CARD ANATOMY */
+      .blog-card-img {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .blog-card-img-fade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, var(--card), transparent 60%);
+      }
+      .blog-card-img svg {
+        width: 52px;
+        height: 52px;
+        opacity: 0.38;
+        position: relative;
+        z-index: 1;
+      }
+      .blog-card-tag {
+        position: absolute;
+        top: 10px;
+        left: 12px;
+        padding: 3px 10px;
+        border-radius: 100px;
+        font-size: 0.66rem;
+        font-weight: 700;
+        font-family: var(--fg);
+        z-index: 2;
+      }
+      .blog-card-body {
+        padding: 18px;
+      }
+      .blog-card-title {
+        font-family: var(--fh);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--t1);
+        margin-bottom: 7px;
+        line-height: 1.35;
+        transition: color 0.2s;
+      }
+      .blog-card-desc {
+        font-size: 0.8rem;
+        color: var(--t2);
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+      .blog-card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .blog-card-byline {
+        font-size: 0.72rem;
+        color: var(--t3);
+        font-family: var(--fg);
+      }
+      .blog-card-read {
+        font-size: 0.72rem;
+        color: var(--g1);
+        font-weight: 600;
+        font-family: var(--fg);
+      }
+
+      .gc.blog-card:hover {
+        border-color: rgba(0, 255, 135, 0.2) !important;
+        transform: translateY(-4px);
+      }
+      .gc.blog-card:hover .blog-card-title {
+        color: var(--g1);
+      }
+
+      /* NEWSLETTER STRIP */
+      .nl-strip {
+        background: linear-gradient(
+          135deg,
+          rgba(17, 107, 252, 0.08),
+          rgba(123, 31, 228, 0.06)
+        );
+        border: 1px solid rgba(17, 107, 252, 0.14);
+        border-radius: 20px;
+        padding: 52px 40px;
+        text-align: center;
+        margin-bottom: 80px;
+      }
+      .nl-strip h2 {
+        font-family: var(--fh);
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .nl-strip p {
+        color: var(--t2);
+        font-size: 0.95rem;
+        margin-bottom: 28px;
+      }
+
+      /* BREADCRUMB */
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.78rem;
+        font-family: var(--fg);
+        color: var(--t3);
+        margin-bottom: 28px;
+      }
+      .breadcrumb a {
+        color: var(--t3);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .breadcrumb a:hover {
+        color: var(--t1);
+      }
+      .breadcrumb svg {
+        width: 12px;
+        height: 12px;
+        stroke: var(--t3);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+      }
+
+      /* EMPTY STATE */
+      .empty-state {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--t3);
+      }
+      .empty-state svg {
+        width: 40px;
+        height: 40px;
+        stroke: var(--t3);
+        fill: none;
+        margin-bottom: 12px;
+        opacity: 0.4;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 960px) {
+        .blog-index-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .blog-card-wrap.featured {
+          grid-column: 1/-1;
+        }
+      }
+      @media (max-width: 600px) {
+        .blog-hero {
+          padding: 12px 0 44px;
+        }
+        .blog-index-grid {
+          grid-template-columns: 1fr;
+        }
+        .blog-card-wrap.featured .blog-card-img {
+          height: 180px;
+        }
+        .blog-card-wrap.featured .blog-card-body {
+          padding: 18px;
+        }
+        .blog-card-wrap.featured .blog-card-title {
+          font-size: 1rem;
+        }
+        .nl-strip {
+          padding: 32px 20px;
+        }
+        .filter-bar {
+          gap: 6px;
+        }
+        .ftab {
+          padding: 6px 14px;
+          font-size: 0.74rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav id="nav">
+      <a href="#" class="logo">
+        <img
+          src="./images/sitelogo.svg"
+          alt="cloudemy logo"
+          class="logo-icon"
+        />
+        <div class="logo-txt">
+          <div>
+            <img src="./images/logotext.svg" alt="Cloudemy" />
+            <span class="logo-tag">Edge</span>
+          </div>
+          <span class="logo-sub">Learn. Build. Launch.</span>
+        </div>
+      </a>
+      <ul class="nl">
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#whyus">Why Us</a></li>
+        <li><a href="#mentor">Mentor</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li>
+          <a href="https://cloudemy.in/about" target="_blank">About Us</a>
+        </li>
+        <li>
+          <a href="https://form.cloudemy.in" target="_blank">Contact Us</a>
+        </li>
+      </ul>
+      <a href="#enroll" class="btn bb ncta">Apply Now</a>
+      <button class="hbg" id="hbg">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div id="mm">
+      <a href="#programs">Programs</a>
+      <a href="#courses">Courses</a>
+      <a href="#whyus">Why Us</a>
+      <a href="#mentor">Mentor</a>
+      <a href="#reviews">Reviews</a>
+      <a href="https://cloudemy.in/about" target="_blank">About Us</a>
+      <a href="https://form.cloudemy.in" target="_blank">Contact Us</a>
+      <a href="#enroll" class="btn bb" style="margin-top: 10px">Apply Now</a>
+    </div>
+
+
+    <!-- MAIN -->
+    <main>
+      <!-- HERO -->
+      <section class="blog-hero">
+        <div class="w">
+          <div class="breadcrumb">
+            <a href="/">Home</a>
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+            <span style="color: var(--t2)">Blog</span>
+          </div>
+          <span
+            class="slbl"
+            style="color: var(--g1); margin-bottom: 14px; display: block"
+            >Articles &mdash; Android &amp; Flutter Guides for BCA/MCA/B-TECH/M-TECH Students</span
+          >
+          <h1>
+            Free guides.<br /><span class="gbt"
+              >Written by someone who ships.</span
+            >
+          </h1>
+          <p>
+            Real tutorials on Android, Flutter, MERN, Python and PHP &mdash; by
+            Akash Verma. No fluff, no copy-paste theory. Just what actually
+            works in the industry.
+          </p>
+
+          <!-- FILTER TABS -->
+          <div class="filter-bar" id="filter-bar">
+            <div class="ftab active" data-cat="all">All Articles</div>
+            <div class="ftab" data-cat="android">Android</div>
+            <div class="ftab" data-cat="flutter">Flutter</div>
+            <div class="ftab" data-cat="mern">MERN Stack</div>
+            <div class="ftab" data-cat="python">Python</div>
+            <div class="ftab" data-cat="career">Career</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOG GRID -->
+      <section class="s" style="padding-top: 0">
+        <div class="w">
+          <div class="blog-index-grid" id="blog-grid">
+            <!-- CARD 1 — Android (featured) -->
+            <div class="blog-card-wrap featured" data-cat="android career">
+              <a
+                href="/blog/how-to-get-android-job-lucknow"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(61, 220, 151, 0.14),
+                      rgba(17, 107, 252, 0.1)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#3DDC97"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(61, 220, 151, 0.12);
+                      border: 1px solid rgba(61, 220, 151, 0.25);
+                      color: #3ddc97;
+                    "
+                  >
+                    Android
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    How to Get an Android Developer Job in Lucknow in 2026
+                  </div>
+                  <p class="blog-card-desc">
+                    The honest guide &mdash; what skills you actually need, what
+                    Lucknow companies look for, and what most freshers get wrong
+                    in interviews. Covers Kotlin, Jetpack, MVVM, GitHub and
+                    portfolio strategy.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 8 min read
+                      &nbsp;&middot;&nbsp; Android · Career</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 2 — Flutter -->
+            <div class="blog-card-wrap" data-cat="flutter">
+              <a
+                href="/blog/flutter-vs-react-native-2026"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(84, 182, 246, 0.14),
+                      rgba(123, 31, 228, 0.1)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#54B6F6"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(84, 182, 246, 0.12);
+                      border: 1px solid rgba(84, 182, 246, 0.25);
+                      color: #54b6f6;
+                    "
+                  >
+                    Flutter
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    Flutter vs React Native in 2026 — Which Should You Learn
+                    First?
+                  </div>
+                  <p class="blog-card-desc">
+                    An honest comparison for students in India picking their
+                    first cross-platform framework. Jobs, salaries, community,
+                    and which one gets hired faster in UP companies.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 6 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 3 — MERN -->
+            <div class="blog-card-wrap" data-cat="mern">
+              <a
+                href="/blog/mern-stack-salary-up-2026"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(0, 212, 255, 0.12),
+                      rgba(17, 107, 252, 0.1)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#00D4FF"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(0, 212, 255, 0.1);
+                      border: 1px solid rgba(0, 212, 255, 0.22);
+                      color: #00d4ff;
+                    "
+                  >
+                    MERN Stack
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    MERN Stack Developer Salary in UP 2026 &mdash; What You Can
+                    Actually Earn
+                  </div>
+                  <p class="blog-card-desc">
+                    Real numbers from real companies in Lucknow, Kanpur and
+                    remote. Entry level vs experienced. What skills push your
+                    salary up by 40% in the first year.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 5 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 4 — Flutter (ValueNotifier) -->
+            <div class="blog-card-wrap" data-cat="flutter">
+              <a
+                href="/blog/flutter-state-management-valuenotifier"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(84, 182, 246, 0.12),
+                      rgba(0, 255, 135, 0.08)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#54B6F6"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(84, 182, 246, 0.12);
+                      border: 1px solid rgba(84, 182, 246, 0.25);
+                      color: #54b6f6;
+                    "
+                  >
+                    Flutter
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    Flutter State Management with ValueNotifier — Build Your Own
+                    GetX Alternative
+                  </div>
+                  <p class="blog-card-desc">
+                    How to implement a lightweight reactive state system using
+                    ValueNotifier, custom Rx extensions, and a DI store —
+                    without relying on heavy packages.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 12 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 5 — Android -->
+            <div class="blog-card-wrap" data-cat="android">
+              <a
+                href="/blog/android-mvvm-retrofit-2026"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(61, 220, 151, 0.12),
+                      rgba(17, 107, 252, 0.08)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#3DDC97"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 18V9a6 6 0 0112 0v9" />
+                    <path
+                      d="M6 18a2 2 0 01-2-2v-1a2 2 0 012-2h12a2 2 0 012 2v1a2 2 0 01-2 2"
+                    />
+                    <path d="M9 21h6" />
+                    <path d="M9 6l-2-3M15 6l2-3" />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(61, 220, 151, 0.12);
+                      border: 1px solid rgba(61, 220, 151, 0.25);
+                      color: #3ddc97;
+                    "
+                  >
+                    Android
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    Android MVVM Architecture with Retrofit — The Right Way in
+                    2026
+                  </div>
+                  <p class="blog-card-desc">
+                    Step-by-step guide to building a production-quality Android
+                    app using MVVM, Retrofit, Coroutines, and Repository
+                    pattern. With real code, not theory.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 10 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 6 — Career -->
+            <div class="blog-card-wrap" data-cat="career">
+              <a
+                href="/blog/github-portfolio-fresher-developer-lucknow"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(255, 212, 59, 0.1),
+                      rgba(17, 107, 252, 0.08)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#FFD43B"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                    />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(255, 212, 59, 0.1);
+                      border: 1px solid rgba(255, 212, 59, 0.22);
+                      color: #ffd43b;
+                    "
+                  >
+                    Career
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    How to Build a GitHub Portfolio That Gets You Hired as a
+                    Fresher
+                  </div>
+                  <p class="blog-card-desc">
+                    Most student GitHub profiles look the same. Here's exactly
+                    how to structure your repos, write READMEs, and commit
+                    consistently so recruiters actually call you back.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 7 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 7 — Python -->
+            <div class="blog-card-wrap" data-cat="python">
+              <a
+                href="/blog/python-django-rest-api-beginners"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(255, 212, 59, 0.12),
+                      rgba(0, 212, 255, 0.08)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#FFD43B"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 2C8.5 2 6 3.5 6 5.5V8h6v1H4.5C3 9 2 10 2 12s1 4 2.5 4H6v-2.5C6 11.5 8.5 10 12 10s6 1.5 6 3.5V16h1.5c1.5 0 2.5-1 2.5-3s-1-3-2.5-3H18V8h-6V7h6V5.5C18 3.5 15.5 2 12 2z"
+                    />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(255, 212, 59, 0.1);
+                      border: 1px solid rgba(255, 212, 59, 0.22);
+                      color: #ffd43b;
+                    "
+                  >
+                    Python
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    Build a REST API with Django in 30 Minutes — Beginner to
+                    Deployed
+                  </div>
+                  <p class="blog-card-desc">
+                    Django REST Framework from scratch — models, serializers,
+                    viewsets, authentication, and deployment to a real server.
+                    Every step with working code.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 9 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 8 — MERN -->
+            <div class="blog-card-wrap" data-cat="mern">
+              <a
+                href="/blog/react-nextjs-difference-explained"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(0, 212, 255, 0.12),
+                      rgba(123, 31, 228, 0.08)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#00D4FF"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                    />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(0, 212, 255, 0.1);
+                      border: 1px solid rgba(0, 212, 255, 0.22);
+                      color: #00d4ff;
+                    "
+                  >
+                    MERN Stack
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    React vs Next.js — What's Actually Different and Which to
+                    Learn First
+                  </div>
+                  <p class="blog-card-desc">
+                    Plain English explanation of SSR, CSR, hydration, and why
+                    Next.js exists. For developers who know React basics and
+                    want to understand the ecosystem before their next
+                    interview.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 6 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- CARD 9 — Career -->
+            <div class="blog-card-wrap" data-cat="career android flutter">
+              <a
+                href="/blog/top-1-percent-developer-lucknow"
+                class="gc blog-card"
+                style="text-decoration: none; display: block; overflow: hidden"
+              >
+                <div
+                  class="blog-card-img"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      rgba(0, 255, 135, 0.1),
+                      rgba(17, 107, 252, 0.08)
+                    );
+                  "
+                >
+                  <div class="blog-card-img-fade"></div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#00FF87"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
+                  <div
+                    class="blog-card-tag"
+                    style="
+                      background: rgba(0, 255, 135, 0.08);
+                      border: 1px solid rgba(0, 255, 135, 0.2);
+                      color: #00ff87;
+                    "
+                  >
+                    Career
+                  </div>
+                </div>
+                <div class="blog-card-body">
+                  <div class="blog-card-title">
+                    What Separates the Top 1% of Developers from Everyone Else
+                    in Lucknow
+                  </div>
+                  <p class="blog-card-desc">
+                    It's not talent. It's not marks. Here's what actually
+                    separates candidates who get hired immediately from those
+                    who send 200 applications with zero callbacks.
+                  </p>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-byline"
+                      >Akash Verma &nbsp;&middot;&nbsp; 5 min read</span
+                    >
+                    <span class="blog-card-read">Read &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- EMPTY STATE (shown when no results) -->
+            <div class="empty-state" id="empty-state" style="display: none">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <p>No articles in this category yet. More coming soon.</p>
+            </div>
+          </div>
+          <!-- /blog-grid -->
+
+          <!-- NEWSLETTER / CTA STRIP -->
+          <div class="nl-strip rv">
+            <span
+              class="slbl"
+              style="color: var(--g1); margin-bottom: 12px; display: block"
+              >Want more?</span
+            >
+            <h2>
+              Stop reading about coding.<br /><span class="gbt"
+                >Start doing it in Lucknow.</span
+              >
+            </h2>
+            <p>
+              Every guide here is a preview of what we teach hands-on at
+              Cloudemy Edge. Real apps, real GitHub, real career &mdash; in 45
+              days to 6 months.
+            </p>
+            <a href="/#enroll" class="btn bb"
+              >Apply for the next batch &rarr;</a
+            >
+            &nbsp;&nbsp;
+            <a
+              href="https://wa.me/919044415050?text=Hi!%20I%20read%20your%20blog%20and%20want%20to%20know%20more%20about%20Cloudemy%20Edge."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn bo"
+              >Connect With Us on WhatsApp</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="w">
+        <div class="fg">
+          <div>
+            <a href="#" class="logo">
+                <img
+                  src="./images/sitelogo.svg"
+                  alt="cloudemy logo"
+                  class="logo-icon"
+                />
+                <div class="logo-txt">
+                  <div>
+                    <img src="./images/logotext.svg" alt="Cloudemy" />
+                    <span class="logo-tag">Edge</span>
+                  </div>
+                  <span class="logo-sub">Learn. Build. Launch.</span>
+                </div>
+              </a>
+            <p class="fbdesc">
+              Building the top 1% of developers from India. Based in Lucknow.
+            </p>
+            <div class="fsoc">
+              <a
+                href="https://linkedin.com/company/cloudemyindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="fsi"
+                aria-label="LinkedIn"
+                ><svg viewBox="0 0 24 24">
+                  <path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" /></svg
+              ></a>
+              <a
+                href="https://instagram.com/cloudemyindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="fsi"
+                aria-label="Instagram"
+                ><svg viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg
+              ></a>
+              <a
+                href="https://youtube.com/@cloudemyindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="fsi"
+                aria-label="YouTube"
+                ><svg viewBox="0 0 24 24">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
+                    fill="currentColor"
+                    stroke="none"
+                  /></svg
+              ></a>
+              <a
+                href="https://x.com/cloudemyindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="fsi"
+                aria-label="X"
+                ><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" /></svg
+              ></a>
+            </div>
+            <p class="lseo">
+              Cloudemy Edge — Android, Flutter, MERN, Python and PHP training in
+              Lucknow, Kanpur, Shahjahanpur, Prayagraj and across Uttar Pradesh.
+            </p>
+          </div>
+          <div>
+            <div class="fh2">Explore</div>
+            <ul class="fls">
+              <li><a href="/#courses">Courses</a></li>
+              <li><a href="/#programs">Programs</a></li>
+              <li><a href="/#whyus">Why Us</a></li>
+              <li><a href="/#mentor">Mentor</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/#enroll">Apply Now</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="fh2">Programs</div>
+            <ul class="fls">
+              <li><a href="/#programs">45-Day Sprint</a></li>
+              <li><a href="/#programs">3-Month Internship</a></li>
+              <li><a href="/#programs">6-Month Apprenticeship</a></li>
+              
+            </ul>
+          </div>
+          <div class="fct">
+            <div class="fh2">Contact</div>
+            <p>
+              Cloudemy Edge &mdash; Learn. Build. Launch.<br />Diamond City
+              Plaza, B-2/23,<br />Sector F, Jankipuram,<br />Lucknow, UP
+              226021<br /><br /><a href="tel:+919044415050">+91 9044 41 5050</a
+              ><br /><a href="mailto:info@cloudemy.in">info@cloudemy.in</a
+              ><br /><a
+                href="https://cloudemy.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                >cloudemy.in</a
+              ><br /><br /><a
+                href="https://maps.app.goo.gl/wuvocvndGxgspsTy6"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 5px;
+                  color: var(--g1);
+                  font-size: 0.78rem;
+                  font-weight: 600;
+                  margin-top: 4px;
+                "
+                ><svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" /></svg
+                >View on Google Maps</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="fbot">
+          <p>
+            &copy; 2026 Cloudemy Edge. All rights reserved. &nbsp;&middot;&nbsp;
+            <a
+              href="https://cloudemy.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              >cloudemy.in</a
+            >
+            &nbsp;&middot;&nbsp;
+            <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+            <a href="/terms.html">Terms &amp; Conditions</a>
+          </p>
+          <p>
+            Android &middot; Flutter &middot; MERN &middot; Python &middot; PHP
+            &middot; Lucknow, UP
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ── FILTER TABS ── */
+      (function () {
+        var tabs = document.querySelectorAll(".ftab");
+        var cards = document.querySelectorAll(".blog-card-wrap[data-cat]");
+        var empty = document.getElementById("empty-state");
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var cat = this.dataset.cat;
+            tabs.forEach(function (t) {
+              t.classList.remove("active");
+            });
+            this.classList.add("active");
+
+            var visible = 0;
+            cards.forEach(function (card) {
+              if (card.id === "empty-state") return;
+              var cardCats = card.dataset.cat || "";
+              var show =
+                cat === "all" || cardCats.split(" ").indexOf(cat) !== -1;
+              card.classList.toggle("hidden", !show);
+              if (show) visible++;
+            });
+            empty.style.display = visible === 0 ? "block" : "none";
+          });
+        });
+      })();
+
+      /* ── REVEAL ON SCROLL ── */
+      (function () {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("on");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
+        );
+        document.querySelectorAll(".blog-card-wrap,.rv").forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+
+      /* ── NAV SCROLL CLASS ── */
+      (function () {
+        var nav = document.querySelector("nav");
+        window.addEventListener(
+          "scroll",
+          function () {
+            nav.classList.toggle("sc", window.scrollY > 40);
+          },
+          { passive: true },
+        );
+      })();
+
+      /* ── MOBILE MENU ── */
+      (function () {
+        var btn = document.getElementById("hbg-btn");
+        var menu = document.getElementById("mob-menu");
+        if (!btn || !menu) return;
+        btn.onclick = function () {
+          var open = menu.classList.toggle("open");
+          btn.classList.toggle("open", open);
+          document.body.style.overflow = open ? "hidden" : "";
+        };
+        menu.querySelectorAll("a").forEach(function (a) {
+          a.onclick = function () {
+            menu.classList.remove("open");
+            btn.classList.remove("open");
+            document.body.style.overflow = "";
+          };
+        });
+      })();
+    </script>
+  </body>
+</html>
