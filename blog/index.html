@@ -32,6 +32,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cloudemyedge.com/css/style.css" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-KKSXTW42P3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-KKSXTW42P3", { anonymize_ip: true });
+    </script>
     <style>
       /* ── PAGE-SPECIFIC STYLES ── */
       .blog-hero {
@@ -1241,34 +1253,38 @@
         });
       })();
 
-      /* ── NAV SCROLL CLASS ── */
       (function () {
-        var nav = document.querySelector("nav");
-        window.addEventListener(
+        var n = document.getElementById("nav");
+        addEventListener(
           "scroll",
           function () {
-            nav.classList.toggle("sc", window.scrollY > 40);
+            n.classList.toggle("sc", scrollY > 50);
           },
-          { passive: true },
+          { passive: true }
         );
       })();
-
-      /* ── MOBILE MENU ── */
       (function () {
-        var btn = document.getElementById("hbg-btn");
-        var menu = document.getElementById("mob-menu");
-        if (!btn || !menu) return;
-        btn.onclick = function () {
-          var open = menu.classList.toggle("open");
-          btn.classList.toggle("open", open);
-          document.body.style.overflow = open ? "hidden" : "";
-        };
-        menu.querySelectorAll("a").forEach(function (a) {
-          a.onclick = function () {
-            menu.classList.remove("open");
-            btn.classList.remove("open");
-            document.body.style.overflow = "";
-          };
+        var b = document.getElementById("hbg"),
+            m = document.getElementById("mm");
+      
+        if (!b || !m) return;
+      
+        function closeMenu() {
+          b.classList.remove("open");
+          m.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      
+        b.addEventListener("click", function () {
+          var isOpen = m.classList.toggle("open");
+          b.classList.toggle("open", isOpen);
+          document.body.style.overflow = isOpen ? "hidden" : "";
+        });
+      
+        m.addEventListener("click", function (e) {
+          if (e.target.tagName === "A") {
+            closeMenu();
+          }
         });
       })();
     </script>
