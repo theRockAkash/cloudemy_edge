@@ -31,13 +31,21 @@
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
-    <!-- <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://wa.me; frame-src https://www.google.com https://www.youtube.com;"
-    /> -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="connect-src 'self' https://wa.me https://createcourselead-kfstw577ya-uc.a.run.app;"
+      content="
+      default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
+      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' data: https:;
+      connect-src 'self'
+        https://wa.me
+        https://createcourselead-kfstw577ya-uc.a.run.app
+        https://www.google-analytics.com
+        https://region1.google-analytics.com
+        https://analytics.google.com;
+      frame-src https://www.google.com https://www.youtube.com;
+      "
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta
@@ -49,13 +57,14 @@
       content="camera=(), microphone=(), geolocation=()"
     />
     <meta name="author" content="Akash Verma, Cloudemy Edge" />
-    <link rel="canonical" href="https://edge.cloudemy.in" />
-    <link rel="alternate" hreflang="en-in" href="https://edge.cloudemy.in" />
-    <link rel="alternate" hreflang="en" href="https://edge.cloudemy.in" />
+    <link rel="canonical" href="https://cloudemyedge.com/" />
+
+    <link rel="alternate" hreflang="en-in" href="https://cloudemyedge.com/" />
+    <link rel="alternate" hreflang="en" href="https://cloudemyedge.com/" />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://edge.cloudemy.in"
+      href="https://cloudemyedge.com/"
     />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
@@ -75,8 +84,8 @@
       property="og:description"
       content="Android, Flutter, MERN, Python &amp; PHP training in Lucknow. 8+ years mentor, 100K+ Play Store installs. Real projects. Top 1% career prep."
     />
-    <meta property="og:url" content="https://edge.cloudemy.in" />
-    <meta property="og:image" content="https://edge.cloudemy.in/og.svg" />
+    <meta property="og:url" content="https://cloudemyedge.com" />
+    <meta property="og:image" content="https://cloudemyedge.com/og.svg" />
     <meta property="og:image:type" content="image/svg+xml" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -98,7 +107,7 @@
       name="twitter:description"
       content="Real Android, Flutter, MERN, Python &amp; PHP training in Lucknow. Ship real apps. Join the top 1% of developers from UP."
     />
-    <meta name="twitter:image" content="https://edge.cloudemy.in/og.svg" />
+    <meta name="twitter:image" content="https://cloudemyedge.com/og.svg" />
     <meta
       name="twitter:image:alt"
       content="Cloudemy Edge Learn. Build. Launch. — Lucknow"
@@ -115,11 +124,11 @@
       {
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "EducationalOrganization"],
-        "@id": "https://edge.cloudemy.in/#org",
+        "@id": "https://cloudemyedge.com/#org",
         "name": "Cloudemy Edge Learn. Build. Launch.",
         "alternateName": "Cloudemy Edge — Learn. Build. Launch.",
         "description": "Hands-on Android, Flutter, MERN Stack, Python and PHP training in Lucknow by Akash Verma. Real projects, real internships, placement support.",
-        "url": "https://edge.cloudemy.in",
+        "url": "https://cloudemyedge.com",
         "priceRange": "₹6,000 - ₹28,000",
         "openingHours": ["Mo-Sa 09:00-19:00"],
         "hasMap": "https://maps.app.goo.gl/wuvocvndGxgspsTy6",
@@ -131,9 +140,9 @@
           "https://youtube.com/@cloudemyindia",
           "https://x.com/cloudemyindia"
         ],
-        "logo": "https://edge.cloudemy.in/logo_dark.svg",
-        "image": "https://edge.cloudemy.in/og.png",
-        "telephone": "+91-79044415050",
+        "logo": "https://cloudemyedge.com/logo_dark.svg",
+        "image": "https://cloudemyedge.com/og.png",
+        "telephone": "+91-7376304026",
         "email": "info@cloudemy.in",
         "foundingDate": "2025",
         "address": {
@@ -177,12 +186,12 @@
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "@id": "https://edge.cloudemy.in/#akash",
+        "@id": "https://cloudemyedge.com/#akash",
         "name": "Akash Verma",
         "jobTitle": "Android & Flutter Developer, Founder",
-        "worksFor": { "@id": "https://edge.cloudemy.in/#org" },
+        "worksFor": { "@id": "https://cloudemyedge.com/#org" },
         "description": "Android and Flutter developer with 8+ years experience. Built Cloudemy Studio with 100K+ Play Store installs. YouTube educator and software trainer in Lucknow.",
-        "url": "https://edge.cloudemy.in/#mentor",
+        "url": "https://cloudemyedge.com/#mentor",
         "image": "https://avatars.githubusercontent.com/u/121936065?v=4&s=400",
         "sameAs": [
           "https://youtube.com/@theRockAkash",
@@ -209,9 +218,9 @@
           "@type": "Course",
           "name": "Android Development Training Lucknow",
           "description": "Native Android app development using Kotlin and Java. Build production-ready apps with Jetpack, Firebase, and REST APIs. Deploy to Play Store. Available in 45-day, 3-month and 6-month programs.",
-          "url": "https://edge.cloudemy.in/#courses",
-          "provider": { "@id": "https://edge.cloudemy.in/#org" },
-          "instructor": { "@id": "https://edge.cloudemy.in/#akash" },
+          "url": "https://cloudemyedge.com/#courses",
+          "provider": { "@id": "https://cloudemyedge.com/#org" },
+          "instructor": { "@id": "https://cloudemyedge.com/#akash" },
           "inLanguage": ["en", "hi"],
           "educationalLevel": "Beginner to Advanced",
           "teaches": [
@@ -264,9 +273,9 @@
           "@type": "Course",
           "name": "Flutter Development Training Lucknow",
           "description": "Cross-platform iOS and Android app development using Flutter and Dart. State management, Firebase, BLoC pattern. Publish to Play Store and App Store.",
-          "url": "https://edge.cloudemy.in/#courses",
-          "provider": { "@id": "https://edge.cloudemy.in/#org" },
-          "instructor": { "@id": "https://edge.cloudemy.in/#akash" },
+          "url": "https://cloudemyedge.com/#courses",
+          "provider": { "@id": "https://cloudemyedge.com/#org" },
+          "instructor": { "@id": "https://cloudemyedge.com/#akash" },
           "teaches": [
             "Flutter",
             "Dart",
@@ -313,8 +322,8 @@
           "@type": "Course",
           "name": "MERN Stack Development Training Lucknow",
           "description": "Full-stack web development with MongoDB, Express.js, React and Node.js. Build complete web applications with authentication, REST APIs and cloud deployment.",
-          "url": "https://edge.cloudemy.in/#courses",
-          "provider": { "@id": "https://edge.cloudemy.in/#org" },
+          "url": "https://cloudemyedge.com/#courses",
+          "provider": { "@id": "https://cloudemyedge.com/#org" },
           "teaches": [
             "MongoDB",
             "Express.js",
@@ -362,8 +371,8 @@
           "@type": "Course",
           "name": "Python Development Training Lucknow",
           "description": "Python programming, Django and Flask web development, scripting and automation. From core Python to backend APIs and intro to data science.",
-          "url": "https://edge.cloudemy.in/#courses",
-          "provider": { "@id": "https://edge.cloudemy.in/#org" },
+          "url": "https://cloudemyedge.com/#courses",
+          "provider": { "@id": "https://cloudemyedge.com/#org" },
           "teaches": [
             "Python",
             "Django",
@@ -410,8 +419,8 @@
           "@type": "Course",
           "name": "PHP Laravel Development Training Lucknow",
           "description": "PHP programming with Laravel framework, MySQL database design, and REST API development. Build production web applications and backends.",
-          "url": "https://edge.cloudemy.in/#courses",
-          "provider": { "@id": "https://edge.cloudemy.in/#org" },
+          "url": "https://cloudemyedge.com/#courses",
+          "provider": { "@id": "https://cloudemyedge.com/#org" },
           "teaches": [
             "PHP",
             "Laravel",
@@ -465,7 +474,7 @@
         "operatingSystem": "Android",
         "applicationCategory": "EducationApplication",
         "description": "Android learning and coding education app built by Akash Verma. Over 100,000 installs on Google Play Store.",
-        "author": { "@id": "https://edge.cloudemy.in/#akash" },
+        "author": { "@id": "https://cloudemyedge.com/#akash" },
         "downloadUrl": "https://play.google.com/store/apps/details?id=com.cloudemy.studio",
         "installUrl": "https://play.google.com/store/apps/details?id=com.cloudemy.studio",
         "aggregateRating": {
@@ -489,8 +498,8 @@
         "url": "https://youtu.be/F5IgMmiSUH0",
         "uploadDate": "2025-03-01",
         "duration": "PT25M",
-        "author": { "@id": "https://edge.cloudemy.in/#akash" },
-        "publisher": { "@id": "https://edge.cloudemy.in/#org" },
+        "author": { "@id": "https://cloudemyedge.com/#akash" },
+        "publisher": { "@id": "https://cloudemyedge.com/#org" },
         "inLanguage": "en",
         "learningResourceType": "Video",
         "educationalLevel": "Beginner to Intermediate",
@@ -513,15 +522,15 @@
       }
     </script>
 
-    <!-- ═══ SCHEMA: EducationEvent (April batch) ═══ -->
+    <!-- ═══ SCHEMA: EducationEvent (May batch) ═══ -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "EducationEvent",
-        "name": "Cloudemy Edge — April 2025 Batch",
-        "description": "New batch starting April 1st, 2025 for Android, Flutter, MERN Stack, Python and PHP training programs in Lucknow. Online and offline modes available.",
-        "startDate": "2025-04-01",
-        "endDate": "2025-10-01",
+        "name": "Cloudemy Edge — May 2026 Batch",
+        "description": "New batch starting May 1st, 2026 for Android, Flutter, MERN Stack, Python and PHP training programs in Lucknow. Online and offline modes available.",
+        "startDate": "2026-05-01",
+        "endDate": "2026-10-01",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
         "location": [
@@ -537,18 +546,18 @@
               "addressCountry": "IN"
             }
           },
-          { "@type": "VirtualLocation", "url": "https://edge.cloudemy.in" }
+          { "@type": "VirtualLocation", "url": "https://cloudemyedge.com" }
         ],
-        "organizer": { "@id": "https://edge.cloudemy.in/#org" },
+        "organizer": { "@id": "https://cloudemyedge.com/#org" },
         "offers": {
           "@type": "Offer",
           "price": "6000",
           "priceCurrency": "INR",
           "availability": "https://schema.org/LimitedAvailability",
-          "url": "https://edge.cloudemy.in/#enroll"
+          "url": "https://cloudemyedge.com/#enroll"
         },
         "maximumAttendeeCapacity": 15,
-        "url": "https://edge.cloudemy.in"
+        "url": "https://cloudemyedge.com"
       }
     </script>
 
@@ -557,7 +566,7 @@
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": "https://edge.cloudemy.in/#org",
+        "@id": "https://cloudemyedge.com/#org",
         "review": [
           {
             "@type": "Review",
@@ -568,7 +577,7 @@
               "bestRating": "5"
             },
             "reviewBody": "I had 3 apps deployed before I started applying for jobs. Every interviewer spent the whole time asking about my projects. That never happened before Cloudemy Edge.",
-            "datePublished": "2025-02-01"
+            "datePublished": "2026-02-01"
           },
           {
             "@type": "Review",
@@ -579,7 +588,7 @@
               "bestRating": "5"
             },
             "reviewBody": "The code I wrote in month 2 was actually used in a client project. Not a demo, not a clone — a real app. That confidence is something no certificate gives you.",
-            "datePublished": "2025-01-15"
+            "datePublished": "2026-01-15"
           },
           {
             "@type": "Review",
@@ -590,7 +599,7 @@
               "bestRating": "5"
             },
             "reviewBody": "45 days felt too short but my app is literally live on Play Store right now. Small batch meant Akash reviewed my code personally every session.",
-            "datePublished": "2025-03-01"
+            "datePublished": "2026-03-01"
           }
         ]
       }
@@ -804,8 +813,7 @@
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
       <span class="abt"
-        >Early Bird: Register before April 30 &mdash; Next batch April
-        1st.</span
+        >Early Bird: Register before April 30 &mdash; Next batch May 1st.</span
       >
       <a href="#enroll">Grab your seat</a>
       <button id="abc">&#215;</button>
@@ -895,7 +903,7 @@
             </div>
 
             <div class="hpill rv">
-              <span class="hdot"></span>Accepting applications &mdash; April 1st
+              <span class="hdot"></span>Accepting applications &mdash; May 1st
               batch
             </div>
 
@@ -2442,7 +2450,7 @@
                   ><span class="ct">Firebase</span>
                 </div>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.creatorstools.cloudemy_learning_app"
+                  href="https://play.google.com/store/apps/details?id=com.cloudemy.studio"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="bsm"
@@ -3062,7 +3070,7 @@
             <div class="urg rv d1">
               <svg viewBox="0 0 24 24">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg
-              >April 1st batch &mdash; 15 seats only. 7 already claimed.
+              >May 1st batch &mdash; 15 seats only. 7 already claimed.
             </div>
             <div class="fcard rv d2">
               <form id="ef">
@@ -3439,7 +3447,7 @@
             </a>
 
             <a
-              href="/blog/flutter-vs-react-native-2025"
+              href="/blog/flutter-vs-react-native-2026"
               class="gc blog-card rv d2"
               style="text-decoration: none; display: block; overflow: hidden"
             >
@@ -3518,7 +3526,7 @@
                     line-height: 1.35;
                   "
                 >
-                  Flutter vs React Native in 2025 — Which Should You Learn?
+                  Flutter vs React Native in 2026 — Which Should You Learn?
                 </div>
                 <p
                   style="
@@ -3561,7 +3569,7 @@
             </a>
 
             <a
-              href="/blog/mern-stack-salary-up-2025"
+              href="/blog/mern-stack-salary-up-2026"
               class="gc blog-card rv d3"
               style="text-decoration: none; display: block; overflow: hidden"
             >
@@ -4010,7 +4018,7 @@
           </div>
           <div class="fbot">
             <p>
-              &copy; 2025 Cloudemy Edge. All rights reserved.
+              &copy; 2026 Cloudemy Edge. All rights reserved.
               &nbsp;&middot;&nbsp;
               <a
                 href="https://cloudemy.in"
@@ -4075,10 +4083,6 @@
       </svg>
     </a>
 
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
     <script>
       (function () {
         if (localStorage.getItem("ab-off") === "1")
