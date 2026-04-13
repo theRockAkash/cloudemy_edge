@@ -1,0 +1,246 @@
+/* ═══════════════════════════════════════════════════
+   Cloudemy Edge — Blog Article Shared Styles
+   Used by all blog/[slug].html pages
+   Domain: cloudemyedge.com
+   ═══════════════════════════════════════════════════ */
+
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --navy: #03050f;
+        --card: #080d1a;
+        --t1: #f2f6ff;
+        --t2: #9baec8;
+        --t3: #6480a0;
+        --g1: #00ff87;
+        --b1: #116bfc;
+        --v1: #7b1fe4;
+        --gb: linear-gradient(135deg, #116bfc, #7b1fe4);
+        --gg: linear-gradient(135deg, #00ff87, #00d4ff);
+        --fh: "Outfit", sans-serif;
+        --fb: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--fb);
+        background: var(--navy);
+        color: var(--t1);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--g1);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .w {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      /* NAV */
+      nav {
+        padding: 18px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .logo {
+        font-family: var(--fh);
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--t1);
+      }
+      .logo span {
+        background: var(--gg);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .back {
+        font-size: 0.82rem;
+        color: var(--t2);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .back svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      /* HERO */
+      .bh {
+        padding: 52px 0 36px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 3px 11px;
+        border-radius: 100px;
+        background: rgba(61, 220, 151, 0.1);
+        border: 1px solid rgba(61, 220, 151, 0.22);
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #3ddc97;
+        font-family: var(--fh);
+        letter-spacing: 0.04em;
+        margin-bottom: 16px;
+      }
+      .bh h1 {
+        font-family: var(--fh);
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
+        font-weight: 900;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+      }
+      .meta {
+        font-size: 0.8rem;
+        color: var(--t3);
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .meta span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .meta svg {
+        width: 13px;
+        height: 13px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .lede {
+        font-size: 1.05rem;
+        color: var(--t2);
+        line-height: 1.82;
+        padding-bottom: 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 36px;
+      }
+      /* ARTICLE BODY */
+      .article h2 {
+        font-family: var(--fh);
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--t1);
+        margin: 36px 0 12px;
+        letter-spacing: -0.01em;
+      }
+      .article h3 {
+        font-family: var(--fh);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--t1);
+        margin: 24px 0 8px;
+      }
+      .article p {
+        color: var(--t2);
+        margin-bottom: 16px;
+        line-height: 1.82;
+      }
+      .article ul,
+      .article ol {
+        color: var(--t2);
+        margin: 0 0 16px 20px;
+        line-height: 1.82;
+      }
+      .article li {
+        margin-bottom: 8px;
+      }
+      .article strong {
+        color: var(--t1);
+        font-weight: 600;
+      }
+      .article blockquote {
+        border-left: 3px solid var(--g1);
+        padding: 12px 18px;
+        background: rgba(0, 255, 135, 0.04);
+        border-radius: 0 8px 8px 0;
+        margin: 24px 0;
+        font-style: italic;
+        color: var(--t2);
+      }
+      .article .highlight {
+        background: rgba(17, 107, 252, 0.07);
+        border: 1px solid rgba(17, 107, 252, 0.18);
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin: 24px 0;
+      }
+      .article .highlight p {
+        margin-bottom: 0;
+        color: var(--t1);
+      }
+      /* CTA */
+      .cta-box {
+        margin: 48px 0 0;
+        padding: 28px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(17, 107, 252, 0.07),
+          rgba(0, 255, 135, 0.04)
+        );
+        border: 1px solid rgba(17, 107, 252, 0.2);
+        text-align: center;
+      }
+      .cta-box h3 {
+        font-family: var(--fh);
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--t1);
+        margin-bottom: 8px;
+      }
+      .cta-box p {
+        font-size: 0.88rem;
+        color: var(--t2);
+        margin-bottom: 18px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 11px 22px;
+        border-radius: 100px;
+        font-family: var(--fh);
+        font-size: 0.86rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00ff87, #00d4ff);
+        color: #020a14;
+        text-decoration: none;
+      }
+      /* FOOTER */
+      footer {
+        margin-top: 72px;
+        padding: 28px 5%;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      footer p {
+        font-size: 0.78rem;
+        color: var(--t3);
+      }
