@@ -282,6 +282,15 @@
         margin-bottom: 4px;
         font-size: 0.95rem;
       }
+
+       /* Related Articles */
+    .related { margin:48px 0 0; padding-top:36px; border-top:1px solid rgba(255,255,255,.06); }
+    .related h3 { font-family:var(--fh); font-size:1rem; font-weight:700; color:var(--t1); margin-bottom:16px; }
+    .related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .related-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:16px; text-decoration:none; transition:all .2s; display:block; }
+    .related-card:hover { border-color:rgba(0,255,135,.2); transform:translateY(-2px); text-decoration:none; }
+    .related-card .tag { font-size:.66rem; margin-bottom:8px; }
+    .related-card p { font-size:.84rem; color:var(--t2); line-height:1.45; margin:0; }
     </style>
   </head>
   <body>
@@ -401,7 +410,7 @@ class ProfileView(generics.RetrieveAPIView):
       <div class="related">
         <h3>Related Articles</h3>
         <div class="related-grid">
-          <a href="/blog/mern-stack-salary-up-2026" class="related-card"
+          <!-- <a href="/blog/mern-stack-salary-up-2026" class="related-card"
             ><span class="tag">MERN</span>
             <p>MERN Stack Salary in UP 2026</p></a
           >
@@ -414,13 +423,34 @@ class ProfileView(generics.RetrieveAPIView):
             class="related-card"
             ><span class="tag">Career</span>
             <p>Build a GitHub Portfolio That Gets You Hired</p></a
-          >
+          > -->
+          <!-- NEW -->
+         <a href="/blog/mern-stack-salary-up-2026" class="related-card" aria-label="Flutter State Management with ValueNotifier">
+          <span class="tag" style="background:rgba(17,107,252,.1);border-color:rgba(17,107,252,.25);color:var(--b1)">MERN</span>
+          <p>MERN Stack Salary in UP 2026</p>
+        </a>
+        <a href="/blog/react-nextjs-difference-explained" class="related-card" aria-label="How to Get an Android Developer Job in Lucknow">
+          <span class="tag" style="background:rgba(17,107,252,.1);border-color:rgba(17,107,252,.25);color:var(--b1)">MERN</span>
+          <p>React vs Next.js Explained</p>
+        </a>
+        <a href="/blog/github-portfolio-fresher-developer-lucknow" class="related-card" aria-label="What Separates the Top 1% of Developers">
+          <span class="tag" style="background:rgba(17,107,252,.1);border-color:rgba(17,107,252,.25);color:var(--b1)">Career</span>
+          <p>Build a GitHub Portfolio That Gets You Hired</p>
+        </a>
+        
+      </div>
+    </div>
+    <div class="cta-box">
+        <h3>Ready to stop reading and start building?</h3>
+        <a href="/#enroll" class="btn">Apply Now &rarr;</a>
+      </div>
+      <!-- NEW-ENd -->
         </div>
       </div>
-      <div class="enroll-cta">
+      <!-- <div class="enroll-cta">
         <p>Ready to stop reading and start building?</p>
        <a href="https://cloudemyedge.com/#enroll" style="margin-top: 32px;" class="btn">Apply to Cloudemy Edge &rarr;</a>
-      </div>
+      </div> -->
     </div>
     <div class="blog-end-pad"></div>
 
