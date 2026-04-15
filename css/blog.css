@@ -191,6 +191,96 @@
         margin-bottom: 0;
         color: var(--t1);
       }
+      .article pre {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin: 20px 0;
+        overflow-x: auto;
+      }
+      .article code {
+        font-family: monospace;
+        font-size: 0.9em;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      .article pre code {
+        background: none;
+        padding: 0;
+        font-size: 0.86rem;
+      }
+      .article table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+        font-size: 0.9rem;
+      }
+      .article th {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--t1);
+        font-weight: 600;
+        padding: 10px 14px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .article td {
+        padding: 10px 14px;
+        color: var(--t2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    .article .compare { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
+    .article .compare-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:18px; }
+    .article .compare-card h4 { font-family:var(--fh); font-size:.95rem; font-weight:700; color:var(--t1); margin-bottom:12px; }
+
+      .flutter-card {
+        border-color: rgba(84, 182, 246, 0.2) !important;
+      }
+      .rn-card {
+        border-color: rgba(255, 212, 59, 0.2) !important;
+      }
+      .salary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.88rem;
+      }
+      .salary-table th {
+        background: rgba(17, 107, 252, 0.12);
+        color: var(--t1);
+        padding: 10px 14px;
+        text-align: left;
+      }
+      .salary-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--t2);
+      }
+      /* Active nav link highlight for blog */
+      .nl a[href="/blog"] {
+        color: var(--t1);
+        font-weight: 600;
+      }
+
+      @media (max-width: 600px) {
+        .blog-wrap {
+          padding: 0 16px;
+        }
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+        .article .compare {
+          grid-template-columns: 1fr;
+        }
+        .blog-course-cta {
+          flex-direction: column;
+        }
+        .bh h1 {
+          font-size: 1.55rem;
+        }
+      }
+
       /* CTA */
       .cta-box {
         margin: 48px 0 0;
@@ -229,6 +319,41 @@
         color: #020a14;
         text-decoration: none;
       }
+
+      /* BLOG BOTTOM PADDING */
+      .blog-end-pad {
+        padding-bottom: 80px;
+      }
+      .w-blog {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Blog course CTA */
+      .blog-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+      .blog-btn{
+        padding: 8px 16px;
+        font-size: 0.72rem;
+        color: var(--g1);
+        font-weight: 800;
+        font-family: var(--fg);              
+      }
+
+      .blog-course-cta{background:linear-gradient(135deg,rgba(17,107,252,.08),rgba(123,31,228,.06));border:1px solid rgba(17,107,252,.14);border-radius:14px;padding:24px;margin:32px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+      .blog-course-cta-text{font-size:.9rem;color:var(--t2)}
+      .blog-course-cta-text strong{color:var(--t1);display:block;margin-bottom:4px;font-size:.95rem}
+
+      /* RELATED ARTICLES */
+      .related { margin:48px 0 0; padding-top:36px; border-top:1px solid rgba(255,255,255,.06); }
+      .related h3 { font-family:var(--fh); font-size:1rem; font-weight:700; color:var(--t1); margin-bottom:16px; }
+      .related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+      .related-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:16px; text-decoration:none; transition:all .2s; display:block; }
+      .related-card:hover { border-color:rgba(0,255,135,.2); transform:translateY(-2px); text-decoration:none; }
+      .related-card .tag { font-size:.66rem; margin-bottom:8px; }
+      .related-card p { font-size:.84rem; color:var(--t2); line-height:1.45; margin:0; }
+
+
       /* FOOTER */
       footer {
         margin-top: 72px;
