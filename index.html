@@ -696,7 +696,7 @@
             "name": "How many students are in each batch at Cloudemy Edge?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Maximum 15 students per batch. You get direct code reviews, personal feedback, and attention that a 50-person class cannot give you."
+              "text": "Maximum 20 students per batch. You get direct code reviews, personal feedback, and attention that a 50-person class cannot give you."
             }
           },
           {
@@ -1956,7 +1956,7 @@
                 </svg>
               </div>
               <div class="wt">
-                Max 15 per batch &mdash; you are not invisible
+                Max 20 per batch &mdash; you are not invisible
               </div>
               <p class="wd">
                 Every student gets direct code review and personal feedback from
@@ -3178,7 +3178,7 @@
             <div class="urg rv d1">
               <svg viewBox="0 0 24 24">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg
-              >May 1st batch &mdash; 15 seats only. 7 already claimed.
+              >May 1st batch &mdash; 20 seats only. 7 already claimed.
             </div>
             <div class="fcard rv d2">
               <form id="ef">
@@ -3252,6 +3252,17 @@
                       <option>Not sure &mdash; we will advise</option>
                     </select>
                   </div>
+                  <div class="ff fu">
+                    <div class="field">
+                      <label for="message">Your message</label
+                      ><textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Ask about batch dates, fees, prerequisites..."
+                      ></textarea>
+                    </div>
+                  </div>
                 </div>
                 <input
                   name="_trap"
@@ -3260,6 +3271,7 @@
                   autocomplete="off"
                   aria-hidden="true"
                 />
+                
                 <button type="submit" class="bsub">
                   I want to be in the top 1%
                 </button>
@@ -3889,7 +3901,7 @@
               </button>
               <div class="fa">
                 <p>
-                  Max 15. That&rsquo;s the whole point. You get direct code
+                  Max 20. That&rsquo;s the whole point. You get direct code
                   reviews, personal feedback, and attention that a 50-person
                   class cannot give you. This is a lab, not a lecture hall.
                 </p>
@@ -4037,11 +4049,11 @@
             <div>
               <div class="fh2">Explore</div>
               <ul class="fls">
-                <li><a href="#courses">Courses</a></li>
+                <li><a href="courses/">Courses</a></li>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#whyus">Why Us</a></li>
                 <li><a href="#mentor">Mentor</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="/blog/">Blog</a></li>
                 <li><a href="#enroll">Apply Now</a></li>
               </ul>
             </div>
@@ -4293,8 +4305,9 @@
           var city = formData.get("city") || "";
           var course = formData.get("course") || "";
           var program = formData.get("program") || "";
+          var message = formData.get("message") || "";
 
-          console.log({ name, phone, email, course, program, city });
+          console.log({ name, phone, email, course, program, city, message });
 
           fetch("https://createcourselead-kfstw577ya-uc.a.run.app", {
             method: "POST",
@@ -4304,7 +4317,7 @@
             body: JSON.stringify({
               name: name.trim(),
               email: email.trim(),
-              message: "New Lead",
+              message: message.trim(),
               source: "Edge Website",
               courseInterest: course,
               program: program,

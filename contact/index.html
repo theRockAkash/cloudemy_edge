@@ -139,29 +139,69 @@
                     />
                   </div>
                 </div>
-                <div class="field">
-                  <label for="email">Email *</label
-                  ><input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@email.com"
-                    required
-                    autocomplete="email"
-                  />
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 16px;
+                  "
+                  class="form-row-2"
+                >
+                  <div class="field">
+                    <label for="email">Email *</label
+                    ><input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="you@email.com"
+                      required
+                      autocomplete="email"
+                    />
+                  </div>
+                  <div class="field">
+                      <label for="city">City</label
+                      ><input
+                        type="text"
+                        id="city"
+                        name="city"
+                        placeholder="Lucknow, Kanpur...."
+                      />
+                  </div>
                 </div>
                 <div class="field">
-                  <label for="interest">Interested in</label>
-                  <select id="interest" name="interest">
-                    <option value="" disabled selected>Select a course</option>
-                    <option>Android Development</option>
-                    <option>Flutter Development</option>
-                    <option>MERN Stack</option>
-                    <option>Python Development</option>
-                    <option>PHP &amp; Laravel</option>
-                    <option>SEO &amp; Digital Marketing</option>
-                    <option>Not sure &mdash; need guidance</option>
-                  </select>
+                  <div class="ff fu">
+                    <label for="program">What do you want to build?</label
+                    ><select name="program" id="program" title="program" required>
+                      <option value="" disabled selected>Pick a track</option>
+                      <option>
+                        Android Dev &mdash; Native apps (Kotlin/Java)
+                      </option>
+                      <option>
+                        Flutter Dev &mdash; Cross-platform (iOS + Android)
+                      </option>
+                      <option>MERN Stack &mdash; Full-stack web apps</option>
+                      <option>
+                        Python Dev &mdash; Backend &amp; automation
+                      </option>
+                      <option>PHP &amp; Laravel &mdash; Web backends</option>
+                      <option>Not sure &mdash; help me choose</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ff fu">
+                    <label for="interest">Interested in</label>
+                    <select id="interest" name="interest">
+                      <option value="" disabled selected>Select a course</option>
+                      <option>Android Development</option>
+                      <option>Flutter Development</option>
+                      <option>MERN Stack</option>
+                      <option>Python Development</option>
+                      <option>PHP &amp; Laravel</option>
+                      <option>SEO &amp; Digital Marketing</option>
+                      <option>Not sure &mdash; need guidance</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="field">
                   <label for="message">Your message</label
@@ -179,7 +219,7 @@
                 >
                   Send Message &rarr;
                 </button>
-              
+                
                 <p
                   style="
                     font-size: 0.74rem;
@@ -502,7 +542,7 @@
                       line-height: 1.75;
                     "
                   >
-                    May 2026. 15 seats, 7 already claimed. Apply early to secure
+                    May 2026. 20 seats, 7 already claimed. Apply early to secure
                     your seat.
                   </div>
                 </div>
@@ -747,30 +787,40 @@
           if (!name || !phone || !email) return;
           btn.disabled = true;
           btn.textContent = "Sending...";
+          var city = document.getElementById("city").value.trim();
           var interest = document.getElementById("interest").value;
           var message = document.getElementById("message").value.trim();
-           
+          var program = document.getElementById("program").value;
+
+          
           fetch("https://createcourselead-kfstw577ya-uc.a.run.app", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              name: name.trim(),
-              email: email.trim(),
+              name: name,
+              email: email,
               message: message,
               source: "Edge Website Contact",
               courseInterest: interest,
-              program: "",
-              phone: phone.trim(),
-              city: "",
+              program: program,
+              phone: phone,
+              city: city,
             }),
           })
             .then(function () {
               form.style.display = "none";
               s.style.display = "block";
+              btn.textContent = "Send Message";
+              btn.disabled = false;
             })
             .catch(function () {
               form.style.display = "none";
-               s.style.display = "block";
+              s.style.display = "block";
+              btn.textContent = "Send Message";
+              btn.disabled = false;
+            })
+            .finally(function () {
+              form.reset();
               btn.textContent = "Send Message";
               btn.disabled = false;
             });
