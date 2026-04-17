@@ -95,6 +95,13 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/blog.css" />
+    <style>
+      .related-tag {
+        background: rgba(17, 107, 252, 0.1);
+        border-color: rgba(17, 107, 252, 0.25);
+        color: var(--b1);
+      }
+    </style>
   </head>
   <body>
     <div id="nav-placeholder" style="height: 66px"></div>
@@ -239,6 +246,11 @@
       </article>
       <div class="related">
         <h3>Related Articles</h3>
+        <!-- /*  In each span tag in related articles card - style="
+                background: rgba(17, 107, 252, 0.1);
+                border-color: rgba(17, 107, 252, 0.25);
+                color: var(--b1);
+              " */ -->
         <div class="related-grid">
           <a
             href="/blog/how-to-get-android-job-lucknow"
@@ -246,12 +258,7 @@
             aria-label="Flutter State Management with ValueNotifier"
           >
             <span
-              class="tag"
-              style="
-                background: rgba(17, 107, 252, 0.1);
-                border-color: rgba(17, 107, 252, 0.25);
-                color: var(--b1);
-              "
+              class="tag related-tag"
               >Android</span
             >
             <p>How to Get an Android Job in Lucknow</p>
@@ -262,12 +269,8 @@
             aria-label="How to Get an Android Developer Job in Lucknow"
           >
             <span
-              class="tag"
-              style="
-                background: rgba(17, 107, 252, 0.1);
-                border-color: rgba(17, 107, 252, 0.25);
-                color: var(--b1);
-              "
+              class="tag related-tag"
+              
               >Flutter State Management with ValueNotifier</span
             >
             <p>Build a REST API with Django in 30 Minutes</p>
@@ -278,12 +281,7 @@
             aria-label="What Separates the Top 1% of Developers"
           >
             <span
-              class="tag"
-              style="
-                background: rgba(17, 107, 252, 0.1);
-                border-color: rgba(17, 107, 252, 0.25);
-                color: var(--b1);
-              "
+              class="tag related-tag"
               >Career</span
             >
             <p>Build a GitHub Portfolio That Gets You Hired</p>

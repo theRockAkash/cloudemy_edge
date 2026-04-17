@@ -4,12 +4,12 @@
    Domain: cloudemyedge.com
    ═══════════════════════════════════════════════════ */
 
-* {
+/* * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-      }
-      :root {
+      } */
+      /* :root {
         --navy: #03050f;
         --card: #080d1a;
         --t1: #f2f6ff;
@@ -22,17 +22,17 @@
         --gg: linear-gradient(135deg, #00ff87, #00d4ff);
         --fh: "Outfit", sans-serif;
         --fb: "Inter", sans-serif;
-      }
+      } */
       html {
         scroll-behavior: smooth;
       }
-      body {
+      /* body {
         font-family: var(--fb);
         background: var(--navy);
         color: var(--t1);
         line-height: 1.7;
         -webkit-font-smoothing: antialiased;
-      }
+      } */
       a {
         color: var(--g1);
         text-decoration: none;
@@ -40,11 +40,11 @@
       a:hover {
         text-decoration: underline;
       }
-      .w {
+      /* .w {
         max-width: 720px;
         margin: 0 auto;
         padding: 0 24px;
-      }
+      } */
       /* NAV */
       nav {
         padding: 18px 5%;
@@ -98,6 +98,7 @@
         letter-spacing: 0.04em;
         margin-bottom: 16px;
       }
+      
       .bh h1 {
         font-family: var(--fh);
         font-size: clamp(1.7rem, 4vw, 2.5rem);
@@ -352,10 +353,22 @@
       .related-card:hover { border-color:rgba(0,255,135,.2); transform:translateY(-2px); text-decoration:none; }
       .related-card .tag { font-size:.66rem; margin-bottom:8px; }
       .related-card p { font-size:.84rem; color:var(--t2); line-height:1.45; margin:0; }
-
+      .related-tag{
+        display: inline-block;
+        padding: 3px 11px;
+        border-radius: 100px;
+        border: 1px solid rgba(17, 107, 252, 0.25);
+        font-size: 0.72rem;
+        font-weight: 700;
+        font-family: var(--fh);
+        letter-spacing: 0.04em;
+        margin-bottom: 16px;
+        background: rgba(17, 107, 252, 0.1);
+        color: var(--b1);
+      }
 
       /* FOOTER */
-      footer {
+      /* footer {
         margin-top: 72px;
         padding: 28px 5%;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -368,4 +381,4 @@
       footer p {
         font-size: 0.78rem;
         color: var(--t3);
-      }
+      } */
