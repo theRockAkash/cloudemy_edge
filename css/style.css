@@ -152,7 +152,6 @@ img {
   padding: 96px 0;
   overflow: hidden;
 }
-
 /* GRADIENT TEXT */
 .gbt {
   background: var(--gb);
@@ -272,6 +271,12 @@ img {
 }
 .blog-card:hover div[style*="font-weight:700"] {
   color: var(--g1) !important;
+}
+
+.other-courses-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 @media (max-width: 960px) {
   #blog-grid {
@@ -2278,6 +2283,10 @@ footer {
   .ski-intro {
     grid-template-columns: 1fr;
   }
+
+  .other-courses-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 601px) and (max-width: 900px) {
   .hero {
@@ -2336,6 +2345,10 @@ footer {
   }
 }
 @media (max-width: 600px) {
+
+  .other-courses-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
   #mm.open {
     padding: 66px 12px;
   }
