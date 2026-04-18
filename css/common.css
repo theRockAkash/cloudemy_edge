@@ -481,7 +481,6 @@ nav.sc {
   color: var(--t2);
   line-height: 1.65;
 }
-
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 960px) {
   .courses-grid {

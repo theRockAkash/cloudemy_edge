@@ -152,7 +152,6 @@ img {
   padding: 96px 0;
   overflow: hidden;
 }
-
 /* GRADIENT TEXT */
 .gbt {
   background: var(--gb);
@@ -215,6 +214,7 @@ img {
   line-height: 1;
   letter-spacing: 0.01em;
 }
+
 .bb {
   background: var(--gb);
   color: #fff;
@@ -271,6 +271,12 @@ img {
 }
 .blog-card:hover div[style*="font-weight:700"] {
   color: var(--g1) !important;
+}
+
+.other-courses-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 @media (max-width: 960px) {
   #blog-grid {
@@ -474,6 +480,7 @@ nav.sc {
   position: fixed;
   inset: 0;
   background: rgba(3, 5, 15, 0.97);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   z-index: 99;
   flex-direction: column;
@@ -616,6 +623,13 @@ nav.sc {
   overflow: hidden;
   margin-bottom: 28px;
   position: relative;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 15%,
+    #000 85%,
+    transparent
+  );
   mask-image: linear-gradient(
     90deg,
     transparent,
@@ -808,6 +822,13 @@ nav.sc {
 .apps-track {
   overflow: hidden;
   position: relative;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
   mask-image: linear-gradient(
     90deg,
     transparent,
@@ -1677,6 +1698,7 @@ nav.sc {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.022);
   border: 1px solid rgba(17, 107, 252, 0.14);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 .fgr {
@@ -1701,6 +1723,7 @@ nav.sc {
   text-transform: uppercase;
 }
 .ff input,
+.ff textarea,
 .ff select {
   background: rgba(255, 255, 255, 0.034);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1827,6 +1850,7 @@ nav.sc {
   font-family: var(--fh);
   font-weight: 600;
   font-size: 0.88rem;
+  -webkit-user-select: none;
   user-select: none;
   color: var(--t1);
   line-height: 1.4;
@@ -1909,7 +1933,7 @@ footer {
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--t2);
+  color: var(--g1);
   margin-bottom: 14px;
 }
 .fls {
@@ -2007,6 +2031,7 @@ footer {
   z-index: 150;
   padding: 10px 14px;
   background: rgba(3, 5, 15, 0.95);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-top: 1px solid rgba(17, 107, 252, 0.14);
   gap: 8px;
@@ -2258,6 +2283,10 @@ footer {
   .ski-intro {
     grid-template-columns: 1fr;
   }
+
+  .other-courses-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 601px) and (max-width: 900px) {
   .hero {
@@ -2316,6 +2345,10 @@ footer {
   }
 }
 @media (max-width: 600px) {
+
+  .other-courses-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
   #mm.open {
     padding: 66px 12px;
   }
@@ -2547,4 +2580,18 @@ footer {
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+
+.btn-gaps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-more{
+  padding: 8px 16px;
+  font-size: 0.72rem;
+  color: var(--g1);
+  font-weight: 600;
+  font-family: var(--fg);               
 }

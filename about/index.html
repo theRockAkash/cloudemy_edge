@@ -73,6 +73,74 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/common.css" />
+    <style>
+      .info-card-number{
+        font-family: var(--fh);
+        font-size: 2.2rem;
+        font-weight: 900;
+        background: var(--gg);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .info-card-text{
+        font-size: 0.78rem;
+        color: var(--t3);
+        font-family: var(--fg);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+      }
+      .social{
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+      .social-links{
+        padding: 9px 18px; 
+        font-size: 0.82rem
+      }
+      .p-text{
+        color: var(--t2);
+        line-height: 1.8;
+        margin-top: 14px;
+        font-size: 0.95rem;
+      }
+      .contact{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .contact-info{
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 0.9rem;
+        color: var(--t2);
+      }
+      .founder-img{
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 2px solid rgba(17, 107, 252, 0.2);
+      }
+      .about-story-div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .iframe-div{
+        background: var(--card);
+        border: 1px solid var(--glb);
+        border-radius: 16px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+      }
+    </style>
   </head>
   <body>
     <div id="nav-placeholder" style="height: 66px"></div>
@@ -115,13 +183,8 @@
       <section class="ip-section">
         <div class="w">
           <div
-            style="
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              gap: 48px;
-              align-items: center;
-            "
-            class="about-story-grid"
+            
+            class="about-story-grid about-story-div"
           >
             <div class="rv">
               <span
@@ -132,13 +195,7 @@
               <h2 class="sh">
                 Built out of frustration with how coding is taught in India.
               </h2>
-              <p
-                style="
-                  color: var(--t2);
-                  line-height: 1.8;
-                  margin-top: 16px;
-                  font-size: 0.95rem;
-                "
+              <p class="p-text"
               >
                 After years of working as an Android and Flutter developer, the
                 founder of Cloudemy Edge saw the same problem repeatedly:
@@ -148,12 +205,7 @@
                 unprepared.
               </p>
               <p
-                style="
-                  color: var(--t2);
-                  line-height: 1.8;
-                  margin-top: 12px;
-                  font-size: 0.95rem;
-                "
+                class="p-text"
               >
                 Cloudemy Edge was built to do the opposite. From day one, you
                 write real code. Every week, you ship something. By graduation
@@ -168,108 +220,47 @@
               >
                 <div class="info-card" style="text-align: center">
                   <div
-                    style="
-                      font-family: var(--fh);
-                      font-size: 2.2rem;
-                      font-weight: 900;
-                      background: var(--gg);
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                      background-clip: text;
-                    "
+                    class="info-card-number"
                   >
                     8+
                   </div>
                   <div
-                    style="
-                      font-size: 0.78rem;
-                      color: var(--t3);
-                      font-family: var(--fg);
-                      text-transform: uppercase;
-                      letter-spacing: 0.06em;
-                      margin-top: 4px;
-                    "
+                    class="info-card-text"
                   >
                     Years Industry Experience
                   </div>
                 </div>
                 <div class="info-card" style="text-align: center">
                   <div
-                    style="
-                      font-family: var(--fh);
-                      font-size: 2.2rem;
-                      font-weight: 900;
-                      background: var(--gg);
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                      background-clip: text;
-                    "
+                    class="info-card-number"
                   >
                     100K+
                   </div>
                   <div
-                    style="
-                      font-size: 0.78rem;
-                      color: var(--t3);
-                      font-family: var(--fg);
-                      text-transform: uppercase;
-                      letter-spacing: 0.06em;
-                      margin-top: 4px;
-                    "
+                    class="info-card-text"
                   >
                     Play Store Installs
                   </div>
                 </div>
                 <div class="info-card" style="text-align: center">
                   <div
-                    style="
-                      font-family: var(--fh);
-                      font-size: 2.2rem;
-                      font-weight: 900;
-                      background: var(--gg);
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                      background-clip: text;
-                    "
+                    class="info-card-number"
                   >
                     4.6&#9733;
                   </div>
                   <div
-                    style="
-                      font-size: 0.78rem;
-                      color: var(--t3);
-                      font-family: var(--fg);
-                      text-transform: uppercase;
-                      letter-spacing: 0.06em;
-                      margin-top: 4px;
-                    "
+                    class="info-card-text"
                   >
                     Rated
                   </div>
                 </div>
                 <div class="info-card" style="text-align: center">
                   <div
-                    style="
-                      font-family: var(--fh);
-                      font-size: 2.2rem;
-                      font-weight: 900;
-                      background: var(--gg);
-                      -webkit-background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                      background-clip: text;
-                    "
+                    class="info-card-number"
                   >
                     20
                   </div>
-                  <div
-                    style="
-                      font-size: 0.78rem;
-                      color: var(--t3);
-                      font-family: var(--fg);
-                      text-transform: uppercase;
-                      letter-spacing: 0.06em;
-                      margin-top: 4px;
-                    "
+                  <div class="info-card-text"
                   >
                     Max Batch Size
                   </div>
@@ -477,17 +468,11 @@
             "
             class="mentor-grid"
           >
-            <div class="rv">
+            <div class="rv ">
               <img
+                class="founder-img"
                 src="https://avatars.githubusercontent.com/u/121936065?v=4&s=400"
                 alt="Akash Verma — Founder of Cloudemy Edge, Android and Flutter developer in Lucknow"
-                style="
-                  width: 100%;
-                  aspect-ratio: 1/1;
-                  object-fit: cover;
-                  border-radius: 16px;
-                  border: 2px solid rgba(17, 107, 252, 0.2);
-                "
               />
             </div>
             <div class="rv d2">
@@ -498,12 +483,7 @@
               >
               <h2 class="sh" style="font-size: 1.6rem">Akash Verma</h2>
               <p
-                style="
-                  color: var(--t2);
-                  line-height: 1.8;
-                  margin-top: 12px;
-                  font-size: 0.95rem;
-                "
+                class="p-text"
               >
                 Android and Flutter developer with over 8 years of professional
                 experience. Built Cloudemy Studio &mdash; a Video Recording app
@@ -519,12 +499,7 @@
                 with an active developer community.
               </p>
               <p
-                style="
-                  color: var(--t2);
-                  line-height: 1.8;
-                  margin-top: 12px;
-                  font-size: 0.95rem;
-                "
+                class="p-text"
               >
                 He still writes production code every day. When he teaches
                 architecture patterns, it is because he uses them in real apps.
@@ -533,35 +508,27 @@
                 syllabus says so.
               </p>
               <div
-                style="
-                  display: flex;
-                  gap: 12px;
-                  margin-top: 20px;
-                  flex-wrap: wrap;
-                "
+                class="social"
               >
                 <a
                   href="https://youtube.com/@theRockAkash"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn bo"
-                  style="padding: 9px 18px; font-size: 0.82rem"
+                  class="btn bo social-links"
                   >YouTube &rarr;</a
                 >
                 <a
                   href="https://linkedin.com/in/theRockAkash"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn bo"
-                  style="padding: 9px 18px; font-size: 0.82rem"
+                  class="btn bo social-links"
                   >LinkedIn &rarr;</a
                 >
                 <a
                   href="https://github.com/theRockAkash"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn bo"
-                  style="padding: 9px 18px; font-size: 0.82rem"
+                  class="btn bo social-links"
                   >GitHub &rarr;</a
                 >
               </div>
@@ -600,12 +567,7 @@
                 In-person in Lucknow.<br />Online across India.
               </h2>
               <p
-                style="
-                  color: var(--t2);
-                  line-height: 1.8;
-                  margin-top: 14px;
-                  font-size: 0.95rem;
-                "
+                class="p-text"
               >
                 Our training lab is at Diamond City Plaza, Jankipuram, Lucknow.
                 All programs are available in-person and online &mdash; same
@@ -613,21 +575,10 @@
                 Shahjahanpur, Prayagraj and across UP attend online.
               </p>
               <div
-                style="
-                  margin-top: 20px;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 10px;
-                "
+                class="contact"
               >
                 <div
-                  style="
-                    display: flex;
-                    gap: 10px;
-                    align-items: flex-start;
-                    font-size: 0.9rem;
-                    color: var(--t2);
-                  "
+                  class="contact-info"
                 >
                   <svg
                     width="16"
@@ -646,13 +597,7 @@
                   226021
                 </div>
                 <div
-                  style="
-                    display: flex;
-                    gap: 10px;
-                    align-items: center;
-                    font-size: 0.9rem;
-                    color: var(--t2);
-                  "
+                  class="contact-info"
                 >
                   <svg
                     width="16"
@@ -672,13 +617,7 @@
                   >
                 </div>
                 <div
-                  style="
-                    display: flex;
-                    gap: 10px;
-                    align-items: center;
-                    font-size: 0.9rem;
-                    color: var(--t2);
-                  "
+                  class="contact-info"
                 >
                   <svg
                     width="16"
@@ -741,13 +680,7 @@
             </div>
             <div class="rv d2">
               <div
-                style="
-                  background: var(--card);
-                  border: 1px solid var(--glb);
-                  border-radius: 16px;
-                  overflow: hidden;
-                  aspect-ratio: 4/3;
-                "
+                class="iframe-div"
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.9!2d80.9449896!3d26.9113834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e4e722468bdbd7%3A0x7be801ef97de97a!2sCloudemy%20Digital%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1"
@@ -768,7 +701,7 @@
         <div class="w">
           <div class="cta-strip rv">
             <h2>Ready to build something real?</h2>
-            <p>Next batch starts May 2026. 15 seats. Apply in 2 minutes.</p>
+            <p>Next batch starts May 2026. 20 seats. Apply in 2 minutes.</p>
             <a href="/#enroll" class="btn bb">Apply Now &rarr;</a>&nbsp;&nbsp;
             <a href="/contact" class="btn bo">Get in Touch</a>
           </div>

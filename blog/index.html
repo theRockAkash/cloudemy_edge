@@ -63,6 +63,7 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/common.css" />
+    
     <style>
       .blog-hero {
         padding: 24px 0 64px;
@@ -118,6 +119,9 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
       }
       .ftab:hover {
@@ -296,6 +300,10 @@
           padding: 6px 14px;
           font-size: 0.74rem;
         }
+
+        .more-post-btn{
+          margin-bottom: 8px;
+        }
       }
     </style>
   </head>
@@ -306,7 +314,6 @@
         <div class="w">
           <div
             class="breadcrumb"
-             
           >
             <a href="/" style="color: var(--t3); text-decoration: none">Home</a>
             <svg
@@ -917,13 +924,13 @@
               Cloudemy Edge. Real apps, real GitHub, real career &mdash; in 45
               days to 6 months.
             </p>
-            <a href="/#enroll" class="btn bb">Apply for the next batch &rarr;</a
+            <a href="/#enroll" class="btn bb more-post-btn">Apply for the next batch &rarr;</a
             >&nbsp;&nbsp;
             <a
               href="https://wa.me/919044415050?text=Hi!%20I%20read%20your%20blog%20and%20want%20to%20know%20more%20about%20Cloudemy%20Edge."
               target="_blank"
               rel="noopener noreferrer"
-              class="btn bo"
+              class="btn bo more-post-btn"
               >Ask on WhatsApp</a
             >
           </div>
