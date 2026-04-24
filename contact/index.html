@@ -159,19 +159,24 @@
                     />
                   </div>
                   <div class="field">
-                      <label for="city">City</label
-                      ><input
-                        type="text"
-                        id="city"
-                        name="city"
-                        placeholder="Lucknow, Kanpur...."
-                      />
+                    <label for="city">City</label
+                    ><input
+                      type="text"
+                      id="city"
+                      name="city"
+                      placeholder="Lucknow, Kanpur...."
+                    />
                   </div>
                 </div>
                 <div class="field">
                   <div class="ff fu">
-                    <label for="program">What do you want to build?</label
-                    ><select name="program" id="program" title="program" required>
+                    <label for="interest">What do you want to build?</label
+                    ><select
+                      name="interest"
+                      id="interest"
+                      title="interest"
+                      required
+                    >
                       <option value="" disabled selected>Pick a track</option>
                       <option>
                         Android Dev &mdash; Native apps (Kotlin/Java)
@@ -190,16 +195,17 @@
                 </div>
                 <div class="field">
                   <div class="ff fu">
-                    <label for="interest">Interested in</label>
-                    <select id="interest" name="interest">
-                      <option value="" disabled selected>Select a course</option>
-                      <option>Android Development</option>
-                      <option>Flutter Development</option>
-                      <option>MERN Stack</option>
-                      <option>Python Development</option>
-                      <option>PHP &amp; Laravel</option>
-                      <option>SEO &amp; Digital Marketing</option>
-                      <option>Not sure &mdash; need guidance</option>
+                    <label for="program">How deep do you want to go?</label>
+                    <select id="program" name="program">
+                      <option value="" disabled selected>
+                        Select a program
+                      </option>
+                      <option>45-Day Sprint — From ₹6,000</option>
+                      <option>3-Month Internship — From ₹15,000</option>
+                      <option>
+                        6-Month Apprenticeship — From ₹24,000 (most popular)
+                      </option>
+                      <option>Not sure - we will advise</option>
                     </select>
                   </div>
                 </div>
@@ -219,7 +225,7 @@
                 >
                   Send Message &rarr;
                 </button>
-                
+
                 <p
                   style="
                     font-size: 0.74rem;
@@ -232,7 +238,7 @@
                   No spam. We only reply to your message.
                 </p>
               </form>
-               <div class="fsucc" id="fs">
+              <div class="fsucc" id="fs">
                 <div class="fck">
                   <svg viewBox="0 0 24 24">
                     <polyline points="20 6 9 17 4 12" />
@@ -775,8 +781,7 @@
       (function () {
         var form = document.getElementById("contact-form"),
           btn = document.getElementById("submit-btn"),
-          
-            s = document.getElementById("fs");
+          s = document.getElementById("fs");
 
         if (!form) return;
         form.addEventListener("submit", function (e) {
@@ -792,7 +797,6 @@
           var message = document.getElementById("message").value.trim();
           var program = document.getElementById("program").value;
 
-          
           fetch("https://createcourselead-kfstw577ya-uc.a.run.app", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -824,7 +828,6 @@
               btn.textContent = "Send Message";
               btn.disabled = false;
             });
-
         });
       })();
     </script>
