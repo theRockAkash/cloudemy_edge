@@ -63,18 +63,7 @@
     <meta name="geo.region" content="IN-UP" />
     <meta name="geo.placename" content="Lucknow, Uttar Pradesh" />
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-KKSXTW42P3"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-KKSXTW42P3", { anonymize_ip: true });
-    </script>
+    <script src="/js/gtag-common.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -85,15 +74,29 @@
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/blog.css" />
     <style>
-    .salary-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:.88rem; }
-    .salary-table th { background:rgba(17,107,252,.12); color:var(--t1); padding:10px 14px; text-align:left; }
-    .salary-table td { padding:10px 14px; border-bottom:1px solid rgba(255,255,255,.05); color:var(--t2); }
-    .related-tag {
+      .salary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 0.88rem;
+      }
+      .salary-table th {
+        background: rgba(17, 107, 252, 0.12);
+        color: var(--t1);
+        padding: 10px 14px;
+        text-align: left;
+      }
+      .salary-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--t2);
+      }
+      .related-tag {
         background: rgba(17, 107, 252, 0.1);
         border-color: rgba(17, 107, 252, 0.25);
         color: var(--b1);
       }
-  </style>
+    </style>
   </head>
   <body>
     <div id="nav-placeholder" style="height: 66px"></div>
@@ -287,10 +290,7 @@
             class="related-card"
             aria-label="React vs Next.js — What's Actually Different"
           >
-            <span
-              class="tag related-tag"
-              >MERN</span
-            >
+            <span class="tag related-tag">MERN</span>
             <p>React vs Next.js — What's Actually Different</p>
           </a>
           <a
@@ -298,10 +298,7 @@
             class="related-card"
             aria-label="How to Build a GitHub Portfolio That Gets You Hired"
           >
-            <span
-              class="tag related-tag"
-              >Career</span
-          >
+            <span class="tag related-tag">Career</span>
             <p>How to Build a GitHub Portfolio That Gets You Hired</p>
           </a>
           <a
@@ -309,10 +306,7 @@
             class="related-card"
             aria-label="Build a REST API with Django in 30 Minutes"
           >
-            <span
-              class="tag related-tag"
-              >Python</span
-            >
+            <span class="tag related-tag">Python</span>
             <p>Build a REST API with Django in 30 Minutes</p>
           </a>
         </div>
