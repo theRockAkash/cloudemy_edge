@@ -50,18 +50,8 @@
     <meta name="geo.position" content="26.9113834;80.9475699" />
     <link rel="icon" href="/favicon.ico" />
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-KKSXTW42P3"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-KKSXTW42P3", { anonymize_ip: true });
-    </script>
+    <script src="/js/gtag-common.js"></script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -716,10 +706,7 @@
       </section>
       <section class="ip-section">
         <div class="w">
-          <div
-            id="other-courses-grid"
-            class="other-courses-container"
-          ></div>
+          <div id="other-courses-grid" class="other-courses-container"></div>
           <div style="text-align: center; margin-top: 24px">
             <a href="/courses" class="btn bo">View All Courses &rarr;</a>
           </div>
@@ -727,20 +714,58 @@
       </section>
     </main>
     <script>
-      (function(){
-        var g=document.getElementById('other-courses-grid');
-        if(!g)return;
-        var others=[{"slug":"flutter-training-lucknow","name":"Flutter Development","short":"Cross-platform iOS & Android apps from a single codebase using Flutter & Dart."},
-          {"slug":"mern-stack-training-lucknow","name":"MERN Stack","short":"Complete full-stack web apps — MongoDB, Express, React, Node.js with real deployment."},
-          {"slug":"python-training-lucknow","name":"Python Development","short":"Python programming, Django, Flask REST APIs and automation from zero to deployed."},
-          {"slug":"php-laravel-training-lucknow","name":"PHP & Laravel","short":"PHP with Laravel framework, MySQL, REST APIs and MVC architecture."},
-          {"slug":"seo-digital-marketing-training-lucknow","name":"SEO & Digital Marketing","short":"Technical SEO, Google Ads, Meta Ads, analytics and content strategy."}];
-        g.innerHTML=others.slice(0,3).map(function(o){
-          return '<a href="/courses/'+o.slug+'" class="gc" style="display:block;padding:20px;text-decoration:none;transition:all .25s" onmouseover="this.style.borderColor=\'rgba(17,107,252,.3)\'" onmouseout="this.style.borderColor=\'var(--glb)\'">'
-            +'<div style="font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--t1);margin-bottom:6px">'+o.name+'</div>'
-            +'<div style="font-size:.82rem;color:var(--t2)">'+o.short+'</div>'
-            +'<div style="font-size:.78rem;color:var(--g1);font-weight:600;margin-top:10px;font-family:var(--fg)">View Course &rarr;</div></a>';
-        }).join('');
+      (function () {
+        var g = document.getElementById("other-courses-grid");
+        if (!g) return;
+        var others = [
+          {
+            slug: "flutter-training-lucknow",
+            name: "Flutter Development",
+            short:
+              "Cross-platform iOS & Android apps from a single codebase using Flutter & Dart.",
+          },
+          {
+            slug: "mern-stack-training-lucknow",
+            name: "MERN Stack",
+            short:
+              "Complete full-stack web apps — MongoDB, Express, React, Node.js with real deployment.",
+          },
+          {
+            slug: "python-training-lucknow",
+            name: "Python Development",
+            short:
+              "Python programming, Django, Flask REST APIs and automation from zero to deployed.",
+          },
+          {
+            slug: "php-laravel-training-lucknow",
+            name: "PHP & Laravel",
+            short:
+              "PHP with Laravel framework, MySQL, REST APIs and MVC architecture.",
+          },
+          {
+            slug: "seo-digital-marketing-training-lucknow",
+            name: "SEO & Digital Marketing",
+            short:
+              "Technical SEO, Google Ads, Meta Ads, analytics and content strategy.",
+          },
+        ];
+        g.innerHTML = others
+          .slice(0, 3)
+          .map(function (o) {
+            return (
+              '<a href="/courses/' +
+              o.slug +
+              '" class="gc" style="display:block;padding:20px;text-decoration:none;transition:all .25s" onmouseover="this.style.borderColor=\'rgba(17,107,252,.3)\'" onmouseout="this.style.borderColor=\'var(--glb)\'">' +
+              '<div style="font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--t1);margin-bottom:6px">' +
+              o.name +
+              "</div>" +
+              '<div style="font-size:.82rem;color:var(--t2)">' +
+              o.short +
+              "</div>" +
+              '<div style="font-size:.78rem;color:var(--g1);font-weight:600;margin-top:10px;font-family:var(--fg)">View Course &rarr;</div></a>'
+            );
+          })
+          .join("");
       })();
     </script>
     <!-- FOOTER injected by loader.js -->

@@ -1,86 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flutter State Management with ValueNotifier — Build Your Own GetX Alternative | Cloudemy Edge</title>
-  <meta name="description" content="Build a lightweight Flutter state management and dependency injection library using ValueNotifier, custom Rx extensions, and controller lifecycle management.">
-  <meta name="keywords" content="Flutter state management, Flutter ValueNotifier, Flutter GetX alternative, Flutter DI, Flutter reactive programming Lucknow">
-  <link rel="canonical" href="https://cloudemyedge.com/blog/flutter-state-management-valuenotifier">
-  <meta property="og:title" content="Flutter State Management with ValueNotifier — Build Your Own GetX Alternative">
-  <meta property="og:description" content="Build a minimal GetX alternative using ValueNotifier, Rx extensions, and a DI store — real architecture, no heavy dependencies.">
-  <meta property="og:url" content="https://cloudemyedge.com/blog/flutter-state-management-valuenotifier">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Cloudemy Edge">
-  <meta name="robots" content="index, follow">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Flutter State Management with ValueNotifier — Build Your Own GetX Alternative">
-  <meta name="twitter:description" content="Build a minimal GetX alternative using ValueNotifier, Rx extensions, and a DI store — real architecture, no heavy dependencies.">
-  <meta name="twitter:site" content="@cloudemyIndia">
-  
-  
-  
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Flutter State Management with ValueNotifier — Build Your Own GetX Alternative",
-    "author": {"@type": "Person", "name": "Akash Verma", "url": "https://cloudemyedge.com/about"},
-    "publisher": {"@type": "Organization", "name": "Cloudemy Edge", "url": "https://cloudemyedge.com"},
-    "datePublished": "2026-03-22",
-    "dateModified": "2026-04-08",
-    "description": "Build a lightweight Flutter state management and dependency injection library using ValueNotifier, custom Rx extensions, and controller lifecycle management.",
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://cloudemyedge.com/blog/flutter-state-management-valuenotifier"}
-  }
-  </script>
-  
-<meta property="og:image" content="https://cloudemyedge.com/og.png">
-  <link rel="icon" href="/favicon.ico">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKSXTW42P3"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-KKSXTW42P3',{anonymize_ip:true});</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/blog.css" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Flutter State Management with ValueNotifier — Build Your Own GetX
+      Alternative | Cloudemy Edge
+    </title>
+    <meta
+      name="description"
+      content="Build a lightweight Flutter state management and dependency injection library using ValueNotifier, custom Rx extensions, and controller lifecycle management."
+    />
+    <meta
+      name="keywords"
+      content="Flutter state management, Flutter ValueNotifier, Flutter GetX alternative, Flutter DI, Flutter reactive programming Lucknow"
+    />
+    <link
+      rel="canonical"
+      href="https://cloudemyedge.com/blog/flutter-state-management-valuenotifier"
+    />
+    <meta
+      property="og:title"
+      content="Flutter State Management with ValueNotifier — Build Your Own GetX Alternative"
+    />
+    <meta
+      property="og:description"
+      content="Build a minimal GetX alternative using ValueNotifier, Rx extensions, and a DI store — real architecture, no heavy dependencies."
+    />
+    <meta
+      property="og:url"
+      content="https://cloudemyedge.com/blog/flutter-state-management-valuenotifier"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Cloudemy Edge" />
+    <meta name="robots" content="index, follow" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Flutter State Management with ValueNotifier — Build Your Own GetX Alternative"
+    />
+    <meta
+      name="twitter:description"
+      content="Build a minimal GetX alternative using ValueNotifier, Rx extensions, and a DI store — real architecture, no heavy dependencies."
+    />
+    <meta name="twitter:site" content="@cloudemyIndia" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Flutter State Management with ValueNotifier — Build Your Own GetX Alternative",
+        "author": {
+          "@type": "Person",
+          "name": "Akash Verma",
+          "url": "https://cloudemyedge.com/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Cloudemy Edge",
+          "url": "https://cloudemyedge.com"
+        },
+        "datePublished": "2026-03-22",
+        "dateModified": "2026-04-08",
+        "description": "Build a lightweight Flutter state management and dependency injection library using ValueNotifier, custom Rx extensions, and controller lifecycle management.",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://cloudemyedge.com/blog/flutter-state-management-valuenotifier"
+        }
+      }
+    </script>
+
+    <meta property="og:image" content="https://cloudemyedge.com/og.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Google tag (gtag.js) -->
+    <script src="/js/gtag-common.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800;900&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+    <style>
       .related-tag {
         background: rgba(17, 107, 252, 0.1);
         border-color: rgba(17, 107, 252, 0.25);
         color: var(--b1);
       }
     </style>
-  
-</head>
-<body>
-  
-  <div id="nav-placeholder" style="height: 66px"></div>
- 
-  <div class="w-blog">
-    <div class="bh">
-      <span class="tag" style="background:rgba(84,182,246,.1);border-color:rgba(84,182,246,.3);color:rgb(84,182,246)">Flutter</span>
-      <h1>Flutter State Management with ValueNotifier — Build Your Own GetX Alternative</h1>
-      <div class="meta">
-        <span><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Akash Verma</span>
-        <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>March 2026</span>
-        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12 min read</span>
+  </head>
+  <body>
+    <div id="nav-placeholder" style="height: 66px"></div>
+
+    <div class="w-blog">
+      <div class="bh">
+        <span
+          class="tag"
+          style="
+            background: rgba(84, 182, 246, 0.1);
+            border-color: rgba(84, 182, 246, 0.3);
+            color: rgb(84, 182, 246);
+          "
+          >Flutter</span
+        >
+        <h1>
+          Flutter State Management with ValueNotifier — Build Your Own GetX
+          Alternative
+        </h1>
+        <div class="meta">
+          <span
+            ><svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+              <circle cx="12" cy="7" r="4" /></svg
+            >Akash Verma</span
+          >
+          <span
+            ><svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" /></svg
+            >March 2026</span
+          >
+          <span
+            ><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" /></svg
+            >12 min read</span
+          >
+        </div>
+        <p class="lede">
+          Build a minimal GetX alternative using ValueNotifier, Rx extensions,
+          and a DI store — real architecture, no heavy dependencies.
+        </p>
       </div>
-      <p class="lede">Build a minimal GetX alternative using ValueNotifier, Rx extensions, and a DI store — real architecture, no heavy dependencies.</p>
-    </div>
-    <article class="article">
-      <h2>Why Build Your Own State Management?</h2>
-      <p>GetX is popular — but it&rsquo;s a black box. When something breaks, you&rsquo;re debugging someone else&rsquo;s abstraction. Building your own state management means you understand Flutter&rsquo;s reactivity model at the root level. Every interview question about Flutter architecture becomes easy.</p>
-      <h2>The Core: ValueNotifier as a Reactive Container</h2>
-      <p>Flutter ships <code>ValueNotifier&lt;T&gt;</code> in the SDK. It notifies listeners when a value changes. That&rsquo;s our foundation.</p>
-      <pre><code>class Rx&lt;T&gt; extends ValueNotifier&lt;T&gt; {
+      <article class="article">
+        <h2>Why Build Your Own State Management?</h2>
+        <p>
+          GetX is popular — but it&rsquo;s a black box. When something breaks,
+          you&rsquo;re debugging someone else&rsquo;s abstraction. Building your
+          own state management means you understand Flutter&rsquo;s reactivity
+          model at the root level. Every interview question about Flutter
+          architecture becomes easy.
+        </p>
+        <h2>The Core: ValueNotifier as a Reactive Container</h2>
+        <p>
+          Flutter ships <code>ValueNotifier&lt;T&gt;</code> in the SDK. It
+          notifies listeners when a value changes. That&rsquo;s our foundation.
+        </p>
+        <pre><code>class Rx&lt;T&gt; extends ValueNotifier&lt;T&gt; {
   Rx(super.value);
   set v(T newValue) =&gt; value = newValue;
   T get v =&gt; value;
 }</code></pre>
-      <h2>The onChange Helper</h2>
-      <pre><code>extension RxWidget&lt;T&gt; on ValueNotifier&lt;T&gt; {
+        <h2>The onChange Helper</h2>
+        <pre><code>extension RxWidget&lt;T&gt; on ValueNotifier&lt;T&gt; {
   Widget onChange(Widget Function(T) builder) {
     return ValueListenableBuilder&lt;T&gt;(
       valueListenable: this,
@@ -88,8 +165,8 @@
     );
   }
 }</code></pre>
-      <h2>UiState — Sealed Class Pattern</h2>
-      <pre><code>sealed class UiState&lt;T&gt; {}
+        <h2>UiState — Sealed Class Pattern</h2>
+        <pre><code>sealed class UiState&lt;T&gt; {}
 class Loading&lt;T&gt; extends UiState&lt;T&gt; {}
 class Success&lt;T&gt; extends UiState&lt;T&gt; {
   final T data;
@@ -99,15 +176,15 @@ class Failure&lt;T&gt; extends UiState&lt;T&gt; {
   final String message;
   Failure(this.message);
 }</code></pre>
-      <h2>BaseController with Lifecycle Hooks</h2>
-      <pre><code>abstract class BaseController {
+        <h2>BaseController with Lifecycle Hooks</h2>
+        <pre><code>abstract class BaseController {
   void onInit() {}
   void onReady() {}
   void onDispose() {}
   void dispose() =&gt; onDispose();
 }</code></pre>
-      <h2>The DI Store — lazyPut and find</h2>
-      <pre><code>class ControllerStore {
+        <h2>The DI Store — lazyPut and find</h2>
+        <pre><code>class ControllerStore {
   static final _store = &lt;Type, BaseController&gt;{};
   static void lazyPut&lt;T extends BaseController&gt;(T Function() builder) {
     _store[T] = builder()..onInit();
@@ -119,48 +196,83 @@ class Failure&lt;T&gt; extends UiState&lt;T&gt; {
     _store.remove(T);
   }
 }</code></pre>
-      <h2>What You Get vs GetX</h2>
-      <p>Your implementation handles: reactive state, DI, controller lifecycle, and cleanup. GetX adds routing, translations, overlays, HTTP. If you just need state + DI, your version is smaller and fully understood. This is the exact architecture we build in Flutter training at Cloudemy Edge, Lucknow.</p>
-    <div class="blog-course-cta">
-      <div class="blog-course-cta-text">
-        <strong>Ready to build this for real?</strong>
-        This is what we teach hands-on at Cloudemy Edge, Lucknow &mdash; real code, real projects, real career outcomes.
+        <h2>What You Get vs GetX</h2>
+        <p>
+          Your implementation handles: reactive state, DI, controller lifecycle,
+          and cleanup. GetX adds routing, translations, overlays, HTTP. If you
+          just need state + DI, your version is smaller and fully understood.
+          This is the exact architecture we build in Flutter training at
+          Cloudemy Edge, Lucknow.
+        </p>
+        <div class="blog-course-cta">
+          <div class="blog-course-cta-text">
+            <strong>Ready to build this for real?</strong>
+            This is what we teach hands-on at Cloudemy Edge, Lucknow &mdash;
+            real code, real projects, real career outcomes.
+          </div>
+          <a
+            href="/courses/flutter-training-lucknow"
+            class="blog-btn"
+            style="flex-shrink: 0"
+            >Course Details &rarr;</a
+          >
+        </div>
+      </article>
+      <div class="related">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+          <a
+            href="/blog/flutter-vs-react-native-2026"
+            class="related-card"
+            aria-label="Flutter State Management with ValueNotifier"
+          >
+            <span class="tag related-tag">Flutter</span>
+            <p>Flutter vs React Native in 2026</p>
+          </a>
+          <a
+            href="/blog/android-mvvm-retrofit-2026"
+            class="related-card"
+            aria-label="How to Get an Android Developer Job in Lucknow"
+          >
+            <span class="tag related-tag">Android</span>
+            <p>Android MVVM with Retrofit</p>
+          </a>
+          <a
+            href="/blog/top-1-percent-developer-lucknow"
+            class="related-card"
+            aria-label="What Separates the Top 1% of Developers"
+          >
+            <span class="tag related-tag">Career</span>
+            <p>What Separates the Top 1% of Developers</p>
+          </a>
+        </div>
       </div>
-      <a href="/courses/flutter-training-lucknow" class="blog-btn" style="flex-shrink:0">Course Details &rarr;</a>
-    </div>
-</article>
-    <div class="related">
-      <h3>Related Articles</h3>
-      <div class="related-grid">
-         <a href="/blog/flutter-vs-react-native-2026" class="related-card" aria-label="Flutter State Management with ValueNotifier">
-          <span class="tag related-tag">Flutter</span>
-          <p>Flutter vs React Native in 2026</p>
-        </a>
-        <a href="/blog/android-mvvm-retrofit-2026" class="related-card" aria-label="How to Get an Android Developer Job in Lucknow">
-          <span class="tag related-tag">Android</span>
-          <p>Android MVVM with Retrofit</p>
-        </a>
-        <a href="/blog/top-1-percent-developer-lucknow" class="related-card" aria-label="What Separates the Top 1% of Developers">
-          <span class="tag related-tag">Career</span>
-          <p>What Separates the Top 1% of Developers</p>
-        </a>
-        
-      </div>
-    </div>
-    <div class="cta-box">
+      <div class="cta-box">
         <p>Ready to stop reading and start building?</p>
         <a href="/#enroll" class="btn">Apply Now &rarr;</a>
       </div>
-  </div>
+    </div>
     <div class="blog-end-pad"></div>
 
-  
     <div id="footer-placeholder"></div>
 
-    <a href="https://wa.me/919044415050?text=Hi!%20I%20read%20a%20Cloudemy%20Edge%20article%20and%20want%20to%20know%20more." id="waf" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L0 24l6.335-1.51A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.655-.502-5.187-1.381l-.371-.221-3.763.897.941-3.648-.242-.384A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-  </a>
+    <a
+      href="https://wa.me/919044415050?text=Hi!%20I%20read%20a%20Cloudemy%20Edge%20article%20and%20want%20to%20know%20more."
+      id="waf"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L0 24l6.335-1.51A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.655-.502-5.187-1.381l-.371-.221-3.763.897.941-3.648-.242-.384A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+        />
+      </svg>
+    </a>
 
-  <script src="/components/loader.js" defer></script> 
-</body>
+    <script src="/components/loader.js" defer></script>
+  </body>
 </html>

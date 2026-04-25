@@ -62,18 +62,7 @@
     <meta name="geo.region" content="IN-UP" />
     <meta name="geo.placename" content="Lucknow, Uttar Pradesh" />
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-KKSXTW42P3"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-KKSXTW42P3", { anonymize_ip: true });
-    </script>
+    <script src="/js/gtag-common.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -83,10 +72,26 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/blog.css" />
     <style>
-    .article .compare { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
-    .article .compare-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:18px; }
-    .article .compare-card h4 { font-family:var(--fh); font-size:.95rem; font-weight:700; color:var(--t1); margin-bottom:12px; }
-    .related-tag {
+      .article .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 24px 0;
+      }
+      .article .compare-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        padding: 18px;
+      }
+      .article .compare-card h4 {
+        font-family: var(--fh);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--t1);
+        margin-bottom: 12px;
+      }
+      .related-tag {
         background: rgba(17, 107, 252, 0.1);
         border-color: rgba(17, 107, 252, 0.25);
         color: var(--b1);
@@ -257,10 +262,7 @@
             class="related-card"
             aria-label="Flutter State Management with ValueNotifier"
           >
-            <span
-              class="tag related-tag"
-              >Flutter</span
-            >
+            <span class="tag related-tag">Flutter</span>
             <p>Flutter State Management with ValueNotifier</p>
           </a>
           <a
@@ -268,10 +270,7 @@
             class="related-card"
             aria-label="How to Get an Android Developer Job in Lucknow"
           >
-            <span
-              class="tag related-tag"
-              >Android</span
-            >
+            <span class="tag related-tag">Android</span>
             <p>How to Get an Android Developer Job in Lucknow</p>
           </a>
           <a
@@ -279,10 +278,7 @@
             class="related-card"
             aria-label="What Separates the Top 1% of Developers"
           >
-            <span
-              class="tag related-tag"
-              >Career</span
-            >
+            <span class="tag related-tag">Career</span>
             <p>What Separates the Top 1% of Developers</p>
           </a>
         </div>
